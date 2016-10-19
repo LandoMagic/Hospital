@@ -9,7 +9,7 @@ namespace AspNetGroupBasedPermissions.Model
     class InPatient
     {
         public string PatientName { set; get; }
-        public string PatientNumber { }
+        public string PatientNumber { set; get; }
         public string Phone { set; get; }
         public string Status { set; get; }
         public string BloodGroup { set; get; }

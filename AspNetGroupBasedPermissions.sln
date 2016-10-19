@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetGroupBasedPermissions", "AspNetGroupBasedPermissions\AspNetGroupBasedPermissions.csproj", "{D7ADA016-6E82-4F70-B6CF-B687A3B6F6EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetGroupBasedPermissions.Model", "AspNetGroupBasedPermissions.Model\AspNetGroupBasedPermissions.Model.csproj", "{B4EACD55-0F08-4D7A-9F18-B7BA7B8ABA84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetGroupBasedPermissions.Repository", "AspNetGroupBasedPermissions.Repository\AspNetGroupBasedPermissions.Repository.csproj", "{492EF79E-AB72-493C-AE0E-CD0C63F958DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetGroupBasePermissions.Test", "AspNetGroupBasePermissions.Test\AspNetGroupBasePermissions.Test.csproj", "{E1481292-3340-465B-A990-97E1C170139E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetGroupBasedPermissions.Service", "AspNetGroupBasedPermissions.Service\AspNetGroupBasedPermissions.Service.csproj", "{3EF0B3CB-D185-4C16-8458-8208D67EF4D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7ADA016-6E82-4F70-B6CF-B687A3B6F6EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7ADA016-6E82-4F70-B6CF-B687A3B6F6EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7ADA016-6E82-4F70-B6CF-B687A3B6F6EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7ADA016-6E82-4F70-B6CF-B687A3B6F6EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4EACD55-0F08-4D7A-9F18-B7BA7B8ABA84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4EACD55-0F08-4D7A-9F18-B7BA7B8ABA84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4EACD55-0F08-4D7A-9F18-B7BA7B8ABA84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4EACD55-0F08-4D7A-9F18-B7BA7B8ABA84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{492EF79E-AB72-493C-AE0E-CD0C63F958DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{492EF79E-AB72-493C-AE0E-CD0C63F958DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{492EF79E-AB72-493C-AE0E-CD0C63F958DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{492EF79E-AB72-493C-AE0E-CD0C63F958DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1481292-3340-465B-A990-97E1C170139E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1481292-3340-465B-A990-97E1C170139E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1481292-3340-465B-A990-97E1C170139E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1481292-3340-465B-A990-97E1C170139E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EF0B3CB-D185-4C16-8458-8208D67EF4D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EF0B3CB-D185-4C16-8458-8208D67EF4D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EF0B3CB-D185-4C16-8458-8208D67EF4D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EF0B3CB-D185-4C16-8458-8208D67EF4D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

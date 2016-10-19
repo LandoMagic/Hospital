@@ -1,0 +1,55 @@
+﻿
+<!DOCTYPE html>
+<html>
+<!-- Mirrored from themesanytime.com/startui/demo/blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Sep 2016 00:55:39 GMT -->
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Hospital- @ViewData["Title"]</title>
+
+    @*========================================================================================
+    This is the begining of all needed css files
+    =====================================================================================*@
+    @Styles.Render("~/Template/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false) @*attached page css if needed*@
+    @*========================================================================================
+        This is the end of all needed css files
+   =====================================================================================*@
+</head>
+<body class="with-side-menu theme-picton-blue">
+    
+    @Html.Partial("TemplateLayout/_HeaderPartial")
+    @Html.Partial("TemplateLayout/_SidebarPartial")
+    <div class="page-content">
+        <div class="container-fluid">
+            <header class="section-header">
+                <div class="tbl">
+                    <div class="tbl-row">
+                        <div class="tbl-cell">
+                            <h3>@ViewData["Title"]</h3>
+                            <ol class="breadcrumb breadcrumb-simple">
+                                <li><a href="#">Hospital</a></li>
+                                <li><a href="#">@this.ViewContext.RouteData.Values["controller"].ToString()</a></li>
+                                <li class="active">@ViewData["Title"]</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            @RenderBody()
+        </div><!--.container-fluid-->
+    </div><!--.page-content-->
+
+@*========================================================================================
+        This is the begining of all needed js files
+    =====================================================================================*@
+  
+    @Scripts.Render("~/Template/js")
+    @RenderSection("scripts", required: false) @*attached page css if needed*@
+    @*========================================================================================
+             This is the end of all needed jscss files
+    =====================================================================================*@
+</body>
+</html>

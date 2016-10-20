@@ -8,9 +8,6 @@ namespace AspNetGroupBasedPermissions.Model
 {
     class OutPatient
     {
-        public 
-
-
 
 
     }

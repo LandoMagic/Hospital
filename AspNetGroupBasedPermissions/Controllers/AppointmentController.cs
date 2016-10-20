@@ -1,8 +1,10 @@
-﻿using AspNetGroupBasedPermissions.Repository;
+﻿using AspNetGroupBasedPermissions.Model;
+using AspNetGroupBasedPermissions.Repository;
 using AspNetGroupBasedPermissions.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -43,7 +45,15 @@ namespace AspNetGroupBasedPermissions.Controllers
             }
             try
             {
-                // TODO: Add insert logic here
+                var app = new Appointment();
+                app.Date = appointnent.Date;
+                app.PatientId = appointnent.PatientViewmodel.Id;
+                app.DateAdded = DateTime.Now;
+                app.CreatedBy = User.Identity.Name;
+                app.Reason = appointnent.Reason;
+                app.Description = appointnent.Description;
+                db.Appointments.Add(app);
+                db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
@@ -56,6 +66,16 @@ namespace AspNetGroupBasedPermissions.Controllers
         // GET: Appointment/Edit/5
         public ActionResult Edit(int id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Appointment app = db.Appointments.Find(id);
+            if (app == null)
+            {
+                return HttpNotFound();
+            }
+
             return View();
         }
 
@@ -65,7 +85,8 @@ namespace AspNetGroupBasedPermissions.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                // TODO: Add update logic here....check if
+           
 
                 return RedirectToAction("Index");
             }
@@ -78,6 +99,16 @@ namespace AspNetGroupBasedPermissions.Controllers
         // GET: Appointment/Delete/5
         public ActionResult Delete(int id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Appointment app = db.Appointments.Find(id);
+            if (app == null)
+            {
+                return HttpNotFound();
+            }
+
             return View();
         }
 
@@ -88,6 +119,7 @@ namespace AspNetGroupBasedPermissions.Controllers
             try
             {
                 // TODO: Add delete logic here
+              
 
                 return RedirectToAction("Index");
             }

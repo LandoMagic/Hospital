@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appointment.cs" />
-    <Compile Include="InPatient.cs" />
+    <Compile Include="Patient.cs" />
     <Compile Include="OutPatient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

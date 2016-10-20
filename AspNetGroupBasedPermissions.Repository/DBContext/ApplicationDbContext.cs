@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Group = System.Text.RegularExpressions.Group;
+using AspNetGroupBasedPermissions.Model;
 
 namespace AspNetGroupBasedPermissions.Repository
 {
@@ -34,6 +35,7 @@ namespace AspNetGroupBasedPermissions.Repository
         new public virtual IDbSet<ApplicationRole> Roles { get; set; }
         public virtual IDbSet<Group> Groups { get; set; }
 
+        public IDbSet<Patient> Patients { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
@@ -91,5 +93,9 @@ namespace AspNetGroupBasedPermissions.Repository
             EntityTypeConfiguration<ApplicationRole> entityTypeConfiguration1 = modelBuilder.Entity<ApplicationRole>().ToTable("AspNetRoles");
             entityTypeConfiguration1.Property((ApplicationRole r) => r.Name).IsRequired();
         }
+
+        public System.Data.Entity.DbSet<AspNetGroupBasedPermissions.Model.Appointment> Appointments { get; set; }
+
+        public System.Data.Entity.DbSet<AspNetGroupBasedPermissions.ViewModels.AppointmentViewModel> AppointmentViewModels { get; set; }
     }
 }

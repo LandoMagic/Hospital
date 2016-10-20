@@ -8,7 +8,7 @@ namespace AspNetGroupBasedPermissions.Model
 {
     class OutPatient
     {
-
+        public int Id { get; set; }
 
     }
 }

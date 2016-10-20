@@ -86,7 +86,15 @@ namespace AspNetGroupBasedPermissions.Controllers
             try
             {
                 // TODO: Add update logic here....check if
-           
+                var app = new Appointment();
+
+                app.Date = appointnent.Date;
+                app.ID = appointnent.
+              
+
+                db.Appointments.Add(app);
+
+                db.SaveChanges();
 
                 return RedirectToAction("Index");
             }

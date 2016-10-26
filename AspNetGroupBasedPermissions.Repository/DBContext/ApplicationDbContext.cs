@@ -32,10 +32,11 @@ namespace AspNetGroupBasedPermissions.Repository
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         // Add an instance IDbSet using the 'new' keyword:
-        new public virtual IDbSet<ApplicationRole> Roles { get; set; }
+        public virtual IDbSet<ApplicationRole> Roles { get; set; }
         public virtual IDbSet<Group> Groups { get; set; }
 
         public IDbSet<Patient> Patients { get; set; }
+        public IDbSet<Appointment> Appointments { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
@@ -94,8 +95,8 @@ namespace AspNetGroupBasedPermissions.Repository
             entityTypeConfiguration1.Property((ApplicationRole r) => r.Name).IsRequired();
         }
 
-        public System.Data.Entity.DbSet<AspNetGroupBasedPermissions.Model.Appointment> Appointments { get; set; }
+      
 
-        public System.Data.Entity.DbSet<AspNetGroupBasedPermissions.ViewModels.AppointmentViewModel> AppointmentViewModels { get; set; }
+        
     }
 }

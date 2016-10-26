@@ -28,7 +28,7 @@ namespace AspNetGroupBasedPermissions.Controllers
         // GET: Appointment/Create
         public ActionResult Create()
         {
-            ViewBag.PatientViewmodelId = new SelectList( db.Patients.ToList(),"Id", "Firstname");
+            ViewBag.PatientViewmodelId = new SelectList(db.Patients.ToList(), "Id", "Firstname");
             return View();
         }
 
@@ -36,7 +36,7 @@ namespace AspNetGroupBasedPermissions.Controllers
         [HttpPost]
         public ActionResult Create(AppointmentViewModel appointnent)
         {
-           
+
 
             if (!ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace AspNetGroupBasedPermissions.Controllers
         // GET: Appointment/Edit/5
         public ActionResult Edit(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -86,16 +86,6 @@ namespace AspNetGroupBasedPermissions.Controllers
             try
             {
                 // TODO: Add update logic here....check if
-                var app = new Appointment();
-
-                app.Date = appointnent.Date;
-                app.ID = appointnent.
-              
-
-                db.Appointments.Add(app);
-
-                db.SaveChanges();
-
                 return RedirectToAction("Index");
             }
             catch
@@ -107,7 +97,7 @@ namespace AspNetGroupBasedPermissions.Controllers
         // GET: Appointment/Delete/5
         public ActionResult Delete(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -122,19 +112,25 @@ namespace AspNetGroupBasedPermissions.Controllers
 
         // POST: Appointment/Delete/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+               
+                Appointment app = db.Appointments.Find(id);
               
-
+                 db.Appointments.Remove(app);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
+
+            protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                return View();
+                db.Dispose();
             }
+            base.Dispose(disposing);
         }
+    
     }
 }

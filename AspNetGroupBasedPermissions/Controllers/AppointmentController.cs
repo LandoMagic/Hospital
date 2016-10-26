@@ -3,6 +3,7 @@ using AspNetGroupBasedPermissions.Repository;
 using AspNetGroupBasedPermissions.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -18,16 +19,20 @@ namespace AspNetGroupBasedPermissions.Controllers
         // GET: Appointment
         public ActionResult Index()
         {
-            var app = new List<AppointmentViewModel>();
+            var appList = new List<AppointmentViewModel>();
+            
             var appresult = db.Appointments.ToList();
             foreach (var appointment in appresult )
             {
-                app =
-                    Mapper.Map<Appointment,List<AppointmentViewModel> >(appointment);
+                var appp = new AppointmentViewModel();
+               var app =
+                    Mapper.Map<Appointment,AppointmentViewModel>(appointment);
+                appp = app;
+                appp.Patients = db.Patients.FirstOrDefault(p => p.Id == appointment.PatientId);
+                appList.Add(appp);
 
-                
             }
-            return View(app);
+            return View(appList);
         }
 
         // GET: Appointment/Details/5
@@ -59,7 +64,7 @@ namespace AspNetGroupBasedPermissions.Controllers
                 var app =
                    Mapper.Map< AppointmentViewModel,Appointment>(appointment);
                 
-                app.Date = appointment.Date;
+                app.Date = DateTime.Parse(appointment.Date.ToString(CultureInfo.InvariantCulture));
                 app.PatientId = appointment.PatientViewmodelId;
                 app.DateAdded = DateTime.Now;
                
@@ -84,13 +89,23 @@ namespace AspNetGroupBasedPermissions.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Appointment app = db.Appointments.Find(id);
-            if (app == null)
+            Appointment appresult = db.Appointments.Find(id);
+            if (appresult == null)
             {
                 return HttpNotFound();
             }
+            var appList = new List<AppointmentViewModel>();
 
-            return View();
+           
+           
+                var appp = new AppointmentViewModel();
+                 var app =
+                     Mapper.Map<Appointment, AppointmentViewModel>(appresult);
+                appp = app;
+                appp.Patients = db.Patients.FirstOrDefault(p => p.Id == appresult.PatientId);
+             
+
+            return View(appp);
         }
 
         // POST: Appointment/Edit/5

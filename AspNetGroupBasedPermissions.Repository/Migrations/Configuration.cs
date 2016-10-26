@@ -35,6 +35,7 @@ namespace AspNetGroupBasedPermissions.Repository.Migrations
 
         public Configuration()
         {
+            AutomaticMigrationDataLossAllowed = true;
             AutomaticMigrationsEnabled = true;
         }
 

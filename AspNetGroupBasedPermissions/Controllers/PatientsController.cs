@@ -8,17 +8,18 @@ using System.Web;
 using System.Web.Mvc;
 using AspNetGroupBasedPermissions.Model;
 using AspNetGroupBasedPermissions.Repository;
+using AspNetGroupBasedPermissions.Repository.DBContext;
 
 namespace AspNetGroupBasedPermissions.Controllers
 {
     public class PatientsController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly ApplicationDbContext _db = new ApplicationDbContext();
 
         // GET: Patients
         public ActionResult Index()
         {
-            return View(db.Patients.ToList());
+            return View(_db.Patients.ToList());
         }
 
         // GET: Patients/Details/5
@@ -28,7 +29,7 @@ namespace AspNetGroupBasedPermissions.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Patient patient = db.Patients.Find(id);
+            Patient patient = _db.Patients.Find(id);
             if (patient == null)
             {
                 return HttpNotFound();
@@ -51,8 +52,8 @@ namespace AspNetGroupBasedPermissions.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Patients.Add(patient);
-                db.SaveChanges();
+                _db.Patients.Add(patient);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -66,7 +67,7 @@ namespace AspNetGroupBasedPermissions.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Patient patient = db.Patients.Find(id);
+            Patient patient = _db.Patients.Find(id);
             if (patient == null)
             {
                 return HttpNotFound();
@@ -83,8 +84,8 @@ namespace AspNetGroupBasedPermissions.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(patient).State = EntityState.Modified;
-                db.SaveChanges();
+                _db.Entry(patient).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(patient);
@@ -97,7 +98,7 @@ namespace AspNetGroupBasedPermissions.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Patient patient = db.Patients.Find(id);
+            Patient patient = _db.Patients.Find(id);
             if (patient == null)
             {
                 return HttpNotFound();
@@ -110,9 +111,9 @@ namespace AspNetGroupBasedPermissions.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Patient patient = db.Patients.Find(id);
-            db.Patients.Remove(patient);
-            db.SaveChanges();
+            Patient patient = _db.Patients.Find(id);
+            _db.Patients.Remove(patient);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -120,7 +121,7 @@ namespace AspNetGroupBasedPermissions.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }

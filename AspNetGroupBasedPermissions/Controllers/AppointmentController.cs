@@ -7,6 +7,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using AspNetGroupBasedPermissions.Repository.DBContext;
+using AutoMapper;
 
 namespace AspNetGroupBasedPermissions.Controllers
 {
@@ -16,7 +18,16 @@ namespace AspNetGroupBasedPermissions.Controllers
         // GET: Appointment
         public ActionResult Index()
         {
-            return View();
+            var app = new List<AppointmentViewModel>();
+            var appresult = db.Appointments.ToList();
+            foreach (var appointment in appresult )
+            {
+                app =
+                    Mapper.Map<Appointment,List<AppointmentViewModel> >(appointment);
+
+                
+            }
+            return View(app);
         }
 
         // GET: Appointment/Details/5
@@ -34,30 +45,33 @@ namespace AspNetGroupBasedPermissions.Controllers
 
         // POST: Appointment/Create
         [HttpPost]
-        public ActionResult Create(AppointmentViewModel appointnent)
+        public ActionResult Create(AppointmentViewModel appointment)
         {
-
+            ViewBag.PatientViewmodelId = new SelectList(db.Patients.ToList(), "Id", "Firstname", appointment.PatientViewmodelId);
 
             if (!ModelState.IsValid)
             {
-                ViewBag.PatientViewmodelId = new SelectList(db.Patients.ToList(), "Id", "Firstname", appointnent.PatientViewmodel.Id);
+              
                 return View();
             }
             try
             {
-                var app = new Appointment();
-                app.Date = appointnent.Date;
-                app.PatientId = appointnent.PatientViewmodel.Id;
+                var app =
+                   Mapper.Map< AppointmentViewModel,Appointment>(appointment);
+                
+                app.Date = appointment.Date;
+                app.PatientId = appointment.PatientViewmodelId;
                 app.DateAdded = DateTime.Now;
+               
                 app.CreatedBy = User.Identity.Name;
-                app.Reason = appointnent.Reason;
-                app.Description = appointnent.Description;
+                app.Reason = appointment.Reason;
+                app.Description = appointment.Description;
                 db.Appointments.Add(app);
                 db.SaveChanges();
 
-                return RedirectToAction("Index");
+                return View("Index");
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }

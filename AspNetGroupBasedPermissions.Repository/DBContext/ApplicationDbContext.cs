@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Group = System.Text.RegularExpressions.Group;
 using AspNetGroupBasedPermissions.Model;
+using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace AspNetGroupBasedPermissions.Repository
+namespace AspNetGroupBasedPermissions.Repository.DBContext
 {
     public class ApplicationUser : IdentityUser
     {

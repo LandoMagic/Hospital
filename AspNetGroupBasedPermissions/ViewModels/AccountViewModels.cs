@@ -4,6 +4,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
 using AspNetGroupBasedPermissions.Repository;
+using AspNetGroupBasedPermissions.Repository.DBContext;
 
 namespace AspNetGroupBasedPermissions.Models
 {

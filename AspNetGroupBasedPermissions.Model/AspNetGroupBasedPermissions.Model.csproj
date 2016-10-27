@@ -59,9 +59,11 @@
   <ItemGroup>
     <Compile Include="Appointment.cs" />
     <Compile Include="BloodBank.cs" />
+    <Compile Include="DrugInventory.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="OutPatient.cs" />
     <Compile Include="pharmacist.cs" />
+    <Compile Include="Prescription .cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

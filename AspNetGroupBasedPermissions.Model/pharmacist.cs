@@ -8,6 +8,7 @@ namespace AspNetGroupBasedPermissions.Model
 {
     public class pharmacist
     {
+        //The difference Pharmacist
         public string DoctorName { get; set; }
         public string Department { get; set; }
         public string Degree { get; set; }

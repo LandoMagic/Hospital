@@ -3,6 +3,8 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Data.Entity.Validation;
 using System.Linq;
+using AspNetGroupBasedPermissions.Model;
+using AspNetGroupBasedPermissions.Model.ApplicationUSerGroup;
 using AspNetGroupBasedPermissions.Repository.DBContext;
 
 namespace AspNetGroupBasedPermissions.Repository.Migrations

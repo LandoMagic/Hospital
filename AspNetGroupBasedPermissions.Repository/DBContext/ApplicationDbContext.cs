@@ -4,37 +4,19 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using AspNetGroupBasedPermissions.Model;
+using AspNetGroupBasedPermissions.Model.ApplicationUSerGroup;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace AspNetGroupBasedPermissions.Repository.DBContext
 {
-    public class ApplicationUser : IdentityUser
-    {
-        public ApplicationUser()
-            : base()
-        {
-            this.Groups = new HashSet<ApplicationUserGroup>();
-        }
-
-        [Required]
-        public string FirstName { get; set; }
-
-        [Required]
-        public string LastName { get; set; }
-
-        [Required]
-        public string Email { get; set; }
-
-        public virtual ICollection<ApplicationUserGroup> Groups { get; set; }
-
-    }
+ 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         // Add an instance IDbSet using the 'new' keyword:
         public virtual IDbSet<ApplicationRole> Roles { get; set; }
         public virtual IDbSet<Group> Groups { get; set; }
 
-        public IDbSet<Patient> Patients { get; set; }
+      
         public IDbSet<Appointment> Appointments { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection")

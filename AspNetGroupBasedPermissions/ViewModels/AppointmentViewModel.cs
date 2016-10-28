@@ -15,7 +15,7 @@ namespace AspNetGroupBasedPermissions.ViewModels
         public DateTime Date { get; set; }
         public DateTime DateCreated { get; set; }
         public string CreatedBy { get; set; }
-        public virtual Patient Patients{ get; set; }
+        public virtual ApplicationUser ApplicationUser{ get; set; }
         public int PatientViewmodelId { get; set; }
     }
 }

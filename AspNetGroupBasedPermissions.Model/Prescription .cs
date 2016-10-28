@@ -9,9 +9,9 @@ namespace AspNetGroupBasedPermissions.Model
     public class Prescription
     {
         //Add Prescription 
-        public int Rx { get; set; }
-        public string Doctor { get; set; }
-        public string Patient { get; set; }
+        public int Id { get; set; }
+        public int DoctorId { get; set; }
+        public string PatientId { get; set; }
         public DateTime PrescriptionDate { get; set; }
         public string Drug { get; set; }
         public string Details { get; set; }

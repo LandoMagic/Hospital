@@ -10,7 +10,7 @@ namespace AspNetGroupBasedPermissions.Model
     {
 
         public int ID { get; set; }
-        public int PatientId { get; set; }
+        public string PatientId { get; set; }
         public string Reason { get; set; }
         public string Description { get; set; }
         public DateTime? DateAdded { get; set; }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using AspNetGroupBasedPermissions.Model;
+using AspNetGroupBasedPermissions.Model.ApplicationUSerGroup;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 

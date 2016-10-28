@@ -57,6 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationUser.cs" />
+    <Compile Include="ApplicationUSerGroup\ApplicationRole.cs" />
+    <Compile Include="ApplicationUSerGroup\ApplicationRoleGroup.cs" />
+    <Compile Include="ApplicationUSerGroup\ApplicationUserGroup.cs" />
+    <Compile Include="ApplicationUSerGroup\Group.cs" />
     <Compile Include="Appointment.cs" />
     <Compile Include="BloodBank.cs" />
     <Compile Include="DrugInventory.cs" />

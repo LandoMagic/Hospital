@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AspNetGroupBasedPermissions.Model;
+using AspNetGroupBasedPermissions.Model.ApplicationUSerGroup;
 using AspNetGroupBasedPermissions.Repository;
 using AspNetGroupBasedPermissions.Repository.DBContext;
 
@@ -19,9 +22,24 @@ namespace AspNetGroupBasedPermissions.Controllers
         // GET: Patients
         public ActionResult Index()
         {
-            return View(_db.Patients.ToList());
+            return View(GetAllPatiens());
         }
-
+        private List<ApplicationUser> GetAllPatiens()
+        {
+            var patient = new List<ApplicationUser>();
+            var users = _db.Users.ToList();
+            foreach (var user in users)
+            {
+                foreach (var group in user.Groups)
+                {
+                    if (group.Group.Name == "Patients")
+                    {
+                        patient.Add(user);
+                    }
+                }
+            }
+            return patient;
+        }
         // GET: Patients/Details/5
         public ActionResult Details(int? id)
         {
@@ -29,7 +47,7 @@ namespace AspNetGroupBasedPermissions.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Patient patient = _db.Patients.Find(id);
+           var patient = _db.Users.Find(id);
             if (patient == null)
             {
                 return HttpNotFound();
@@ -48,18 +66,53 @@ namespace AspNetGroupBasedPermissions.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,PatientNumber,Phone,BloodGroup,Addresss,DateAddded,ModifiedBy")] Patient patient)
+        public ActionResult Create( ApplicationUser patient)
         {
             if (ModelState.IsValid)
             {
-                _db.Patients.Add(patient);
-                _db.SaveChanges();
+                patient.UserName = patient.FirstName + "." + patient.LastName;
+                var pat = _db.Users.Add(patient);
+                try
+                {
+                    _db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (DbEntityValidationResult item in ex.EntityValidationErrors)
+                    {
+                        // Get entry
+
+                        DbEntityEntry entry = item.Entry;
+                        string entityTypeName = entry.Entity.GetType().Name;
+
+                        // Display or log error messages
+
+                        foreach (DbValidationError subItem in item.ValidationErrors)
+                        {
+                            string message = string.Format("Error '{0}' occurred in {1} at {2}",
+                                     subItem.ErrorMessage, entityTypeName, subItem.PropertyName);
+                            Console.WriteLine(message);
+                        }
+                    }
+                }
+                AddToPatientGroup(pat.Id);
                 return RedirectToAction("Index");
             }
+           
+
 
             return View(patient);
         }
 
+        private void AddToPatientGroup(string userId)
+        {
+           
+                var idManager = new IdentityManager();              
+                idManager.ClearUserGroups(userId);
+                var groupId = _db.Groups.FirstOrDefault(p => p.Name == "Patients");
+            if (groupId != null) idManager.AddUserToGroup(userId, groupId.Id);
+        }
+           
         // GET: Patients/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -67,7 +120,7 @@ namespace AspNetGroupBasedPermissions.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Patient patient = _db.Patients.Find(id);
+            var patient = _db.Users.Find(id);
             if (patient == null)
             {
                 return HttpNotFound();
@@ -98,7 +151,7 @@ namespace AspNetGroupBasedPermissions.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Patient patient = _db.Patients.Find(id);
+            var patient = _db.Users.Find(id);
             if (patient == null)
             {
                 return HttpNotFound();
@@ -111,8 +164,8 @@ namespace AspNetGroupBasedPermissions.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Patient patient = _db.Patients.Find(id);
-            _db.Patients.Remove(patient);
+            var patient = _db.Users.Find(id);
+            _db.Users.Remove(patient);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }

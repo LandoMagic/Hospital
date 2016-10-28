@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AspNetGroupBasedPermissions.Model
 {
-    public class pharmacist
+    public class Pharmacist
     {
         //The difference Pharmacist
         public string DoctorName { get; set; }

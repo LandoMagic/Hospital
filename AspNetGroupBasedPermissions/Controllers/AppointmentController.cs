@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using AspNetGroupBasedPermissions.Model.ApplicationUSerGroup;
 using AspNetGroupBasedPermissions.Repository.DBContext;
 using AutoMapper;
 
@@ -28,7 +29,7 @@ namespace AspNetGroupBasedPermissions.Controllers
                var app =
                     Mapper.Map<Appointment,AppointmentViewModel>(appointment);
                 appp = app;
-                appp.Patients = db.Patients.FirstOrDefault(p => p.Id == appointment.PatientId);
+                appp.ApplicationUser=db.Users.Find(appointment.PatientId);
                 appList.Add(appp);
 
             }
@@ -41,10 +42,29 @@ namespace AspNetGroupBasedPermissions.Controllers
             return View();
         }
 
+        private List<ApplicationUser> GetAllPatiens()
+        {
+            var patient = new List<ApplicationUser>();
+            var users = db.Users.ToList();
+            foreach (var user in users)
+            {
+                foreach (var group in user.Groups)
+                {
+                    if (group.Group.Name == "Patients")
+                    {
+                        patient.Add(user);
+                    }
+                }
+            }
+            return patient;
+        }
         // GET: Appointment/Create
         public ActionResult Create()
         {
-            ViewBag.PatientViewmodelId = new SelectList(db.Patients.ToList(), "Id", "Firstname");
+           
+            
+
+            ViewBag.PatientViewmodelId = new SelectList(GetAllPatiens(), "Id", "Firstname");
             return View();
         }
 
@@ -52,7 +72,7 @@ namespace AspNetGroupBasedPermissions.Controllers
         [HttpPost]
         public ActionResult Create(AppointmentViewModel appointment)
         {
-            ViewBag.PatientViewmodelId = new SelectList(db.Patients.ToList(), "Id", "Firstname", appointment.PatientViewmodelId);
+            ViewBag.PatientViewmodelId = new SelectList(GetAllPatiens(), "Id", "Firstname", appointment.PatientViewmodelId);
 
             if (!ModelState.IsValid)
             {
@@ -65,7 +85,7 @@ namespace AspNetGroupBasedPermissions.Controllers
                    Mapper.Map< AppointmentViewModel,Appointment>(appointment);
                 
                 app.Date = DateTime.Parse(appointment.Date.ToString(CultureInfo.InvariantCulture));
-                app.PatientId = appointment.PatientViewmodelId;
+                app.PatientId = appointment.ApplicationUser.Id;
                 app.DateAdded = DateTime.Now;
                
                 app.CreatedBy = User.Identity.Name;
@@ -102,7 +122,7 @@ namespace AspNetGroupBasedPermissions.Controllers
                  var app =
                      Mapper.Map<Appointment, AppointmentViewModel>(appresult);
                 appp = app;
-                appp.Patients = db.Patients.FirstOrDefault(p => p.Id == appresult.PatientId);
+                appp.ApplicationUser = GetAllPatiens().FirstOrDefault(p => p.Id == appresult.PatientId);
              
 
             return View(appp);

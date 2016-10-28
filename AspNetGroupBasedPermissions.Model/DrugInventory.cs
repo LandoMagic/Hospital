@@ -16,7 +16,7 @@ namespace AspNetGroupBasedPermissions.Model
         public string DosageForm { get; set; }
         public DateTime ExpiryDate { get; set; }
         public int BatchNumber { get; set; }
-
+        public int Id { get; set; }
         //in stock
         public string Stock { get; set; }
 

@@ -29,7 +29,7 @@ namespace AspNetGroupBasedPermissions.Controllers
                var app =
                     Mapper.Map<Appointment,AppointmentViewModel>(appointment);
                 appp = app;
-                appp.ApplicationUser=db.Users.Find(appointment.PatientId);
+                appp.ApplicationUser=db.Users.Find(appointment.ApplicationUserId);
                 appList.Add(appp);
 
             }
@@ -85,7 +85,7 @@ namespace AspNetGroupBasedPermissions.Controllers
                    Mapper.Map< AppointmentViewModel,Appointment>(appointment);
                 
                 app.Date = DateTime.Parse(appointment.Date.ToString(CultureInfo.InvariantCulture));
-                app.PatientId = appointment.ApplicationUser.Id;
+                app.ApplicationUserId = appointment.ApplicationUser.Id;
                 app.DateAdded = DateTime.Now;
                
                 app.CreatedBy = User.Identity.Name;
@@ -96,7 +96,7 @@ namespace AspNetGroupBasedPermissions.Controllers
 
                 return View("Index");
             }
-            catch(Exception ex)
+            catch
             {
                 return View();
             }
@@ -122,7 +122,7 @@ namespace AspNetGroupBasedPermissions.Controllers
                  var app =
                      Mapper.Map<Appointment, AppointmentViewModel>(appresult);
                 appp = app;
-                appp.ApplicationUser = GetAllPatiens().FirstOrDefault(p => p.Id == appresult.PatientId);
+                appp.ApplicationUser = GetAllPatiens().FirstOrDefault(p => p.Id == appresult.ApplicationUserId);
              
 
             return View(appp);

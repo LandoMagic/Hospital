@@ -41,7 +41,7 @@ namespace AspNetGroupBasedPermissions.Controllers
             return patient;
         }
         // GET: Patients/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
@@ -114,7 +114,7 @@ namespace AspNetGroupBasedPermissions.Controllers
         }
            
         // GET: Patients/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
@@ -133,7 +133,7 @@ namespace AspNetGroupBasedPermissions.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,PatientNumber,Phone,BloodGroup,Addresss,DateAddded,ModifiedBy")] Patient patient)
+        public ActionResult Edit(ApplicationUser patient)
         {
             if (ModelState.IsValid)
             {
@@ -145,7 +145,7 @@ namespace AspNetGroupBasedPermissions.Controllers
         }
 
         // GET: Patients/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
@@ -162,7 +162,7 @@ namespace AspNetGroupBasedPermissions.Controllers
         // POST: Patients/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
             var patient = _db.Users.Find(id);
             _db.Users.Remove(patient);

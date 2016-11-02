@@ -29,7 +29,7 @@ namespace AspNetGroupBasedPermissions.Controllers
                var app =
                     Mapper.Map<Appointment,AppointmentViewModel>(appointment);
                 appp = app;
-                appp.ApplicationUser=db.Users.Find(appointment.ApplicationUserId);
+                appp.Patient=db.Users.Find(appointment.ApplicationUserId);
                 appList.Add(appp);
 
             }
@@ -85,7 +85,7 @@ namespace AspNetGroupBasedPermissions.Controllers
                    Mapper.Map< AppointmentViewModel,Appointment>(appointment);
                 
                 app.Date = DateTime.Parse(appointment.Date.ToString(CultureInfo.InvariantCulture));
-                app.ApplicationUserId = appointment.ApplicationUser.Id;
+                app.ApplicationUserId = appointment.PatientViewmodelId;
                 app.DateAdded = DateTime.Now;
                
                 app.CreatedBy = User.Identity.Name;
@@ -122,7 +122,7 @@ namespace AspNetGroupBasedPermissions.Controllers
                  var app =
                      Mapper.Map<Appointment, AppointmentViewModel>(appresult);
                 appp = app;
-                appp.ApplicationUser = GetAllPatiens().FirstOrDefault(p => p.Id == appresult.ApplicationUserId);
+                appp.PatientViewmodelId = GetAllPatiens().FirstOrDefault(p => p.Id == appresult.ApplicationUserId).Id;
              
 
             return View(appp);
@@ -151,12 +151,18 @@ namespace AspNetGroupBasedPermissions.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Appointment app = db.Appointments.Find(id);
+            var appp = new AppointmentViewModel();
+            var appppp =
+                Mapper.Map<Appointment, AppointmentViewModel>(app);
+
+            //TODO get application user info using 
+            // appp.Patient =db.applicationUSer.finf(app.applicationUSerId)
             if (app == null)
             {
                 return HttpNotFound();
             }
 
-            return View();
+            return View(appp);
         }
 
         // POST: Appointment/Delete/5

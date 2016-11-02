@@ -17,8 +17,7 @@ namespace AspNetGroupBasedPermissions.Model
         public DateTime? DateAdded { get; set; }
         public string CreatedBy { get; set; }
         public string ApplicationUserId { get; set; }
-        [ForeignKey("ApplicationUserId")]
-        public virtual ApplicationUser Patient { get; set; }
+       
         public DateTime? Date { get; set; }
         
 

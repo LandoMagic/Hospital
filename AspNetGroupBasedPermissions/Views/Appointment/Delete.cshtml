@@ -1,4 +1,4 @@
-﻿@model AspNetGroupBasedPermissions.Model.ApplicationUser
+﻿@model AspNetGroupBasedPermissions.ViewModels.AppointmentViewModel
 
 @{
     ViewBag.Title = "Delete";
@@ -12,7 +12,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ApplicationUserId)
+            @Html.DisplayNameFor(model => model.Patient.Id)
         </dt>
 
         <dd>

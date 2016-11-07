@@ -137,6 +137,7 @@ namespace AspNetGroupBasedPermissions.Controllers
         {
             if (ModelState.IsValid)
             {
+                patient.DateAddded = DateTime.Now;
                 _db.Entry(patient).State = EntityState.Modified;
                 _db.SaveChanges();
                 return RedirectToAction("Index");

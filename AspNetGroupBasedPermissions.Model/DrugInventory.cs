@@ -8,6 +8,7 @@ namespace AspNetGroupBasedPermissions.Model
 {
     public class DrugInventory
     {
+        
         public string DrugGenericName { get; set; }
         public string DrugBrandName { get; set; }
         //how much ex: 44mg

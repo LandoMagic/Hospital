@@ -15,8 +15,8 @@ namespace AspNetGroupBasedPermissions.Repository.DBContext
         // Add an instance IDbSet using the 'new' keyword:
         public virtual IDbSet<ApplicationRole> Roles { get; set; }
         public virtual IDbSet<Group> Groups { get; set; }
+        public IDbSet<ChildBirth> ChildBirths { get; set; }
 
-      
         public IDbSet<Appointment> Appointments { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection")
@@ -24,6 +24,8 @@ namespace AspNetGroupBasedPermissions.Repository.DBContext
 
         }
 
+        
+       
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

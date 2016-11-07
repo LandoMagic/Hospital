@@ -8,6 +8,8 @@ namespace AspNetGroupBasedPermissions.Model
 {
    public class BloodBank
     {
+        public int ID { get; set; }
+
         //To add and view blood to the blood bank
         public string BloodGroup { get; set; }
         public int NoOfBags { get; set; }

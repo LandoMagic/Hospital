@@ -121,11 +121,11 @@ namespace AspNetGroupBasedPermissions.Controllers
                 var appp = new AppointmentViewModel();
                  var app =
                      Mapper.Map<Appointment, AppointmentViewModel>(appresult);
-                appp = app;
-                appp.PatientViewmodelId = GetAllPatiens().FirstOrDefault(p => p.Id == appresult.ApplicationUserId).Id;
+                
+                app.PatientViewmodelId = GetAllPatiens().FirstOrDefault(p => p.Id == appresult.ApplicationUserId).Id;
              
 
-            return View(appp);
+            return View(app);
         }
 
         // POST: Appointment/Edit/5
@@ -135,6 +135,8 @@ namespace AspNetGroupBasedPermissions.Controllers
             try
             {
                 // TODO: Add update logic here....check if
+              //    var app=  db.Appointments
+               
                 return RedirectToAction("Index");
             }
             catch
@@ -154,6 +156,7 @@ namespace AspNetGroupBasedPermissions.Controllers
             var appp = new AppointmentViewModel();
             var appppp =
                 Mapper.Map<Appointment, AppointmentViewModel>(app);
+            appppp.PatientViewmodelId = GetAllPatiens().FirstOrDefault(p => p.Id == app.ApplicationUserId).Id;
 
             //TODO get application user info using 
             // appp.Patient =db.applicationUSer.finf(app.applicationUSerId)
@@ -162,7 +165,7 @@ namespace AspNetGroupBasedPermissions.Controllers
                 return HttpNotFound();
             }
 
-            return View(appp);
+            return View(appppp);
         }
 
         // POST: Appointment/Delete/5

@@ -63,11 +63,11 @@
     <Compile Include="ApplicationUSerGroup\ApplicationUserGroup.cs" />
     <Compile Include="ApplicationUSerGroup\Group.cs" />
     <Compile Include="Appointment.cs" />
+    <Compile Include="Birth.cs" />
     <Compile Include="BloodBank.cs" />
     <Compile Include="DrugInventory.cs" />
-    <Compile Include="Patient.cs" />
+    <Compile Include="Immunization.cs" />
     <Compile Include="OutPatient.cs" />
-    <Compile Include="pharmacist.cs" />
     <Compile Include="Prescription .cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

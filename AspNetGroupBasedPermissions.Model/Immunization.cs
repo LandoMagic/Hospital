@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace AspNetGroupBasedPermissions.Model
 {
-   public class Patient : ApplicationUser
+    public class Immunization
     {
         public int Id { get; set; }
-      
-
-        //todo allow patient to extend from application user class create a froreign key for application user ID
+        public string Name { get; set; }
+        public DateTime CreateBy { get; set; }
+        public DateTime DateModified { get; set; }
+        public string Detail { get; set; }
 
     }
 }

@@ -78,8 +78,6 @@ namespace AspNetGroupBasedPermissions.Repository.DBContext
             entityTypeConfiguration1.Property((ApplicationRole r) => r.Name).IsRequired();
         }
 
-      
-
-        
+        public System.Data.Entity.DbSet<AspNetGroupBasedPermissions.Model.BodyOut> BodyOuts { get; set; }
     }
 }

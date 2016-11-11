@@ -170,6 +170,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\BodyOutsController.cs" />
     <Compile Include="Controllers\ChildBirthsController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1468,9 +1469,15 @@
     <Content Include="Views\ChildBirths\Details.cshtml" />
     <Content Include="Views\ChildBirths\Edit.cshtml" />
     <Content Include="Views\ChildBirths\Index.cshtml" />
+    <Content Include="Views\BodyOuts\Create.cshtml" />
+    <Content Include="Views\BodyOuts\Delete.cshtml" />
+    <Content Include="Views\BodyOuts\Details.cshtml" />
+    <Content Include="Views\BodyOuts\Edit.cshtml" />
+    <Content Include="Views\BodyOuts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

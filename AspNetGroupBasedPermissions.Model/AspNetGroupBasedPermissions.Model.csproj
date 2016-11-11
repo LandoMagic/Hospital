@@ -65,6 +65,7 @@
     <Compile Include="Appointment.cs" />
     <Compile Include="Birth.cs" />
     <Compile Include="BloodBank.cs" />
+    <Compile Include="BodyOut.cs" />
     <Compile Include="DrugInventory.cs" />
     <Compile Include="Immunization.cs" />
     <Compile Include="OutPatient.cs" />

@@ -79,5 +79,9 @@ namespace AspNetGroupBasedPermissions.Repository.DBContext
         }
 
         public System.Data.Entity.DbSet<AspNetGroupBasedPermissions.Model.BodyOut> BodyOuts { get; set; }
+
+        public System.Data.Entity.DbSet<AspNetGroupBasedPermissions.Model.DrugInventory> DrugInventories { get; set; }
+
+        public System.Data.Entity.DbSet<AspNetGroupBasedPermissions.Model.Prescription> Prescriptions { get; set; }
     }
 }

@@ -172,9 +172,11 @@
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\BodyOutsController.cs" />
     <Compile Include="Controllers\ChildBirthsController.cs" />
+    <Compile Include="Controllers\DrugInventoriesController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
+    <Compile Include="Controllers\PrescriptionsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1474,6 +1476,16 @@
     <Content Include="Views\BodyOuts\Details.cshtml" />
     <Content Include="Views\BodyOuts\Edit.cshtml" />
     <Content Include="Views\BodyOuts\Index.cshtml" />
+    <Content Include="Views\DrugInventories\Create.cshtml" />
+    <Content Include="Views\DrugInventories\Delete.cshtml" />
+    <Content Include="Views\DrugInventories\Details.cshtml" />
+    <Content Include="Views\DrugInventories\Edit.cshtml" />
+    <Content Include="Views\DrugInventories\Index.cshtml" />
+    <Content Include="Views\Prescriptions\Create.cshtml" />
+    <Content Include="Views\Prescriptions\Delete.cshtml" />
+    <Content Include="Views\Prescriptions\Details.cshtml" />
+    <Content Include="Views\Prescriptions\Edit.cshtml" />
+    <Content Include="Views\Prescriptions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

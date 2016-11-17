@@ -7,10 +7,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "BodyOuts", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>BodyOut</h4>
         <hr />
@@ -48,16 +48,18 @@
         </div>
 
         <div class="form-group">
-           @using (Html.BeginForm("Index", "BodyOut", FormMethod.Post, new { enctype = " multipart/form-data" }))
-           {
+        
                <input type="file" name="file"/>
                
-           }
+         
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
+
+              
                 <input type="submit" value="Create" class="btn btn-default" />
+              
             </div>
         </div>
     </div>

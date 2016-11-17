@@ -22,17 +22,18 @@ namespace AspNetGroupBasedPermissions.Controllers
             return View(db.BodyOuts.ToList());
         }
 
-        [HttpPost]
-        public ActionResult Index(HttpPostedFileBase file)
+      
+        private string uploadimage (HttpPostedFileBase file)
         {
+            var path = "";
             if (file != null && file.ContentLength > 0)
             {
                 var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~/App_Data"), fileName);
+                 path = Path.Combine(Server.MapPath("~/Image/BodyOut"), fileName);
                 file.SaveAs(path);
             }
 
-            return RedirectToAction("Index");
+            return path;
         }
 
         // GET: BodyOuts/Details/5
@@ -61,15 +62,20 @@ namespace AspNetGroupBasedPermissions.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,MotherName,FatherName,PlaceOfBirth,Gender")] BodyOut bodyOut)
+        public ActionResult Create(BodyOut bodyOut, HttpPostedFileBase file)
         {
-            if (ModelState.IsValid)
+            var url = uploadimage(file); //location of the sotr image afer upload
+            if (url != "")
             {
-                db.BodyOuts.Add(bodyOut);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                bodyOut.ImageUrl = url;
+                if (ModelState.IsValid)
+                {
+                
+                    db.BodyOuts.Add(bodyOut);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-
             return View(bodyOut);
         }
 

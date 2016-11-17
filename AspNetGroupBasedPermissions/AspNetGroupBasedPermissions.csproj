@@ -1489,7 +1489,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Image\" />
+    <Folder Include="Image\BodyOut\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

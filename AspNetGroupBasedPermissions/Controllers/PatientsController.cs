@@ -12,34 +12,20 @@ using AspNetGroupBasedPermissions.Model;
 using AspNetGroupBasedPermissions.Model.ApplicationUSerGroup;
 using AspNetGroupBasedPermissions.Repository;
 using AspNetGroupBasedPermissions.Repository.DBContext;
+using AspNetGroupBasedPermissions.Service.Services;
 
 namespace AspNetGroupBasedPermissions.Controllers
 {
     public class PatientsController : Controller
     {
         private readonly ApplicationDbContext _db = new ApplicationDbContext();
-
+        private readonly PatientService _patientService = new PatientService();
         // GET: Patients
         public ActionResult Index()
         {
-            return View(GetAllPatiens());
+            return View(_patientService.GetAllPatiens());
         }
-        private List<ApplicationUser> GetAllPatiens()
-        {
-            var patient = new List<ApplicationUser>();
-            var users = _db.Users.ToList();
-            foreach (var user in users)
-            {
-                foreach (var group in user.Groups)
-                {
-                    if (group.Group.Name == "Patients")
-                    {
-                        patient.Add(user);
-                    }
-                }
-            }
-            return patient;
-        }
+      
         // GET: Patients/Details/5
         public ActionResult Details(string id)
         {

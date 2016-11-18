@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AspNetGroupBasedPermissions.Model
 {
@@ -16,8 +11,7 @@ namespace AspNetGroupBasedPermissions.Model
         public string Description { get; set; }
         public DateTime? DateAdded { get; set; }
         public string CreatedBy { get; set; }
-        public string ApplicationUserId { get; set; }
-       
+        public string ApplicationUserId { get; set; }       
         public DateTime? Date { get; set; }
         
 

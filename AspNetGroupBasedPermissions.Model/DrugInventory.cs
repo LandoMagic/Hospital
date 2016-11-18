@@ -15,7 +15,8 @@ namespace AspNetGroupBasedPermissions.Model
         public string DrugBrandName { get; set; }
         //how much ex: 44mg
         public string Strength { get; set; }
-
+        [Display(Name = "Patient")]
+        public string ApplicationUserId { get; set; }
         public string DosageForm { get; set; }
         public DateTime ExpiryDate { get; set; }
         public int BatchNumber { get; set; }

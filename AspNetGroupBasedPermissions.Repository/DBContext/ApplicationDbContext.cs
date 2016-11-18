@@ -13,19 +13,24 @@ namespace AspNetGroupBasedPermissions.Repository.DBContext
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         // Add an instance IDbSet using the 'new' keyword:
-        public virtual IDbSet<ApplicationRole> Roles { get; set; }
-        public virtual IDbSet<Group> Groups { get; set; }
-        public IDbSet<ChildBirth> ChildBirths { get; set; }
-
-        public IDbSet<Appointment> Appointments { get; set; }
+       
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
 
         }
 
-        
-       
+        public virtual DbSet<ApplicationRole> Roles { get; set; }
+        public virtual DbSet<Group> Groups { get; set; }
+        public DbSet<ChildBirth> ChildBirths { get; set; }
+
+        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<BodyOut> BodyOuts { get; set; }
+
+        public DbSet<DrugInventory> DrugInventories { get; set; }
+
+        public DbSet<Prescription> Prescriptions { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -78,10 +83,6 @@ namespace AspNetGroupBasedPermissions.Repository.DBContext
             entityTypeConfiguration1.Property((ApplicationRole r) => r.Name).IsRequired();
         }
 
-        public System.Data.Entity.DbSet<AspNetGroupBasedPermissions.Model.BodyOut> BodyOuts { get; set; }
-
-        public System.Data.Entity.DbSet<AspNetGroupBasedPermissions.Model.DrugInventory> DrugInventories { get; set; }
-
-        public System.Data.Entity.DbSet<AspNetGroupBasedPermissions.Model.Prescription> Prescriptions { get; set; }
+     
     }
 }

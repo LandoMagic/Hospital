@@ -8,13 +8,14 @@ using System.Web;
 using System.Web.Mvc;
 using AspNetGroupBasedPermissions.Model;
 using AspNetGroupBasedPermissions.Repository.DBContext;
+using AspNetGroupBasedPermissions.Service.Services;
 
 namespace AspNetGroupBasedPermissions.Controllers
 {
     public class DrugInventoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        private readonly PatientService _patientService = new PatientService();
         // GET: DrugInventories
         public ActionResult Index()
         {
@@ -39,6 +40,7 @@ namespace AspNetGroupBasedPermissions.Controllers
         // GET: DrugInventories/Create
         public ActionResult Create()
         {
+            ViewBag.ApplicationUserId = new SelectList(_patientService.GetAllPatiens(), "Id", "Firstname");
             return View();
         }
 
@@ -49,6 +51,7 @@ namespace AspNetGroupBasedPermissions.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,DrugGenericName,DrugBrandName,Strength,DosageForm,ExpiryDate,BatchNumber,Stock,DateReceived,StockQuantity,MainCategory")] DrugInventory drugInventory)
         {
+            ViewBag.ApplicationUserId = new SelectList(_patientService.GetAllPatiens(), "Id", "Firstname", drugInventory.ApplicationUserId);
             if (ModelState.IsValid)
             {
                 db.DrugInventories.Add(drugInventory);

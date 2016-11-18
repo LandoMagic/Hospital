@@ -7,13 +7,13 @@ namespace AspNetGroupBasedPermissions.Repository.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class intial : IMigrationMetadata
+    public sealed partial class ob : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(intial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ob));
         
         string IMigrationMetadata.Id
         {
-            get { return "201610282046027_intial"; }
+            get { return "201611181741225_ob"; }
         }
         
         string IMigrationMetadata.Source

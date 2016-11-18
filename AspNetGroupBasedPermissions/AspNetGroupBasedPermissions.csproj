@@ -1504,6 +1504,10 @@
       <Project>{492ef79e-ab72-493c-ae0e-cd0c63f958db}</Project>
       <Name>AspNetGroupBasedPermissions.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AspNetGroupBasedPermissions.Service\AspNetGroupBasedPermissions.Service.csproj">
+      <Project>{3EF0B3CB-D185-4C16-8458-8208D67EF4D0}</Project>
+      <Name>AspNetGroupBasedPermissions.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

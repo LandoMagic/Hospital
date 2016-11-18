@@ -60,9 +60,9 @@
     <Compile Include="DBContext\ApplicationDbContext.cs" />
     <Compile Include="DBContext\IdentityManager.cs" />
     <Compile Include="Interface\IAbstractInterface.cs" />
-    <Compile Include="Migrations\201610282046027_intial.cs" />
-    <Compile Include="Migrations\201610282046027_intial.Designer.cs">
-      <DependentUpon>201610282046027_intial.cs</DependentUpon>
+    <Compile Include="Migrations\201611181741225_ob.cs" />
+    <Compile Include="Migrations\201611181741225_ob.Designer.cs">
+      <DependentUpon>201611181741225_ob.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,8 +79,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610282046027_intial.resx">
-      <DependentUpon>201610282046027_intial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611181741225_ob.resx">
+      <DependentUpon>201611181741225_ob.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

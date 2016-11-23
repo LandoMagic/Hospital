@@ -31,11 +31,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -58,12 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBContext\ApplicationDbContext.cs" />
-    <Compile Include="ApplicationUSerGroup\ApplicationRole.cs" />
-    <Compile Include="ApplicationUSerGroup\ApplicationRoleGroup.cs" />
-    <Compile Include="ApplicationUSerGroup\ApplicationUserGroup.cs" />
-    <Compile Include="ApplicationUSerGroup\Group.cs" />
     <Compile Include="DBContext\IdentityManager.cs" />
     <Compile Include="Interface\IAbstractInterface.cs" />
+    <Compile Include="Migrations\201611181741225_ob.cs" />
+    <Compile Include="Migrations\201611181741225_ob.Designer.cs">
+      <DependentUpon>201611181741225_ob.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
@@ -78,7 +78,11 @@
       <Name>AspNetGroupBasedPermissions.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201611181741225_ob.resx">
+      <DependentUpon>201611181741225_ob.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

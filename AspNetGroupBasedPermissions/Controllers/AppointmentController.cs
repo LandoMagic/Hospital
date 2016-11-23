@@ -3,20 +3,39 @@ using AspNetGroupBasedPermissions.Repository;
 using AspNetGroupBasedPermissions.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using AspNetGroupBasedPermissions.Model.ApplicationUSerGroup;
+using AspNetGroupBasedPermissions.Repository.DBContext;
+using AspNetGroupBasedPermissions.Service.Services;
+using AutoMapper;
 
 namespace AspNetGroupBasedPermissions.Controllers
 {
     public class AppointmentController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly PatientService _patientService = new PatientService();
         // GET: Appointment
         public ActionResult Index()
         {
-            return View();
+            var appList = new List<AppointmentViewModel>();
+            
+            var appresult = db.Appointments.ToList();
+            foreach (var appointment in appresult )
+            {
+                var appp = new AppointmentViewModel();
+               var app =
+                    Mapper.Map<Appointment,AppointmentViewModel>(appointment);
+                appp = app;
+                appp.Patient=db.Users.Find(appointment.ApplicationUserId);
+                appList.Add(appp);
+
+            }
+            return View(appList);
         }
 
         // GET: Appointment/Details/5
@@ -25,37 +44,44 @@ namespace AspNetGroupBasedPermissions.Controllers
             return View();
         }
 
+     
         // GET: Appointment/Create
         public ActionResult Create()
         {
-            ViewBag.PatientViewmodelId = new SelectList( db.Patients.ToList(),"Id", "Firstname");
+           
+            
+
+            ViewBag.PatientViewmodelId = new SelectList(_patientService.GetAllPatiens(), "Id", "Firstname");
             return View();
         }
 
         // POST: Appointment/Create
         [HttpPost]
-        public ActionResult Create(AppointmentViewModel appointnent)
+        public ActionResult Create(AppointmentViewModel appointment)
         {
-           
+            ViewBag.PatientViewmodelId = new SelectList(_patientService.GetAllPatiens(), "Id", "Firstname", appointment.PatientViewmodelId);
 
             if (!ModelState.IsValid)
             {
-                ViewBag.PatientViewmodelId = new SelectList(db.Patients.ToList(), "Id", "Firstname", appointnent.PatientViewmodel.Id);
+              
                 return View();
             }
             try
             {
-                var app = new Appointment();
-                app.Date = appointnent.Date;
-                app.PatientId = appointnent.PatientViewmodel.Id;
+                var app =
+                   Mapper.Map< AppointmentViewModel,Appointment>(appointment);
+                
+                app.Date = DateTime.Parse(appointment.Date.ToString(CultureInfo.InvariantCulture));
+                app.ApplicationUserId = appointment.PatientViewmodelId;
                 app.DateAdded = DateTime.Now;
+               
                 app.CreatedBy = User.Identity.Name;
-                app.Reason = appointnent.Reason;
-                app.Description = appointnent.Description;
+                app.Reason = appointment.Reason;
+                app.Description = appointment.Description;
                 db.Appointments.Add(app);
                 db.SaveChanges();
 
-                return RedirectToAction("Index");
+                return View("Index");
             }
             catch
             {
@@ -66,17 +92,29 @@ namespace AspNetGroupBasedPermissions.Controllers
         // GET: Appointment/Edit/5
         public ActionResult Edit(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Appointment app = db.Appointments.Find(id);
-            if (app == null)
+            Appointment appresult = db.Appointments.Find(id);
+            if (appresult == null)
             {
                 return HttpNotFound();
             }
+            var appList = new List<AppointmentViewModel>();
 
-            return View();
+           
+           
+                var appp = new AppointmentViewModel();
+                 var app =
+                     Mapper.Map<Appointment, AppointmentViewModel>(appresult);
+
+            var firstOrDefault = _patientService.GetAllPatiens().FirstOrDefault(p => p.Id == appresult.ApplicationUserId);
+            if (firstOrDefault != null)
+                app.PatientViewmodelId = firstOrDefault.Id;
+
+
+            return View(app);
         }
 
         // POST: Appointment/Edit/5
@@ -86,8 +124,8 @@ namespace AspNetGroupBasedPermissions.Controllers
             try
             {
                 // TODO: Add update logic here....check if
-           
-
+              //    var app=  db.Appointments
+               
                 return RedirectToAction("Index");
             }
             catch
@@ -99,34 +137,49 @@ namespace AspNetGroupBasedPermissions.Controllers
         // GET: Appointment/Delete/5
         public ActionResult Delete(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Appointment app = db.Appointments.Find(id);
+            var appp = new AppointmentViewModel();
+            var appppp =
+                Mapper.Map<Appointment, AppointmentViewModel>(app);
+            var firstOrDefault = _patientService.GetAllPatiens().FirstOrDefault(p => p.Id == app.ApplicationUserId);
+            if (firstOrDefault != null)
+                appppp.PatientViewmodelId = firstOrDefault.Id;
+
+            //TODO get application user info using 
+            // appp.Patient =db.applicationUSer.finf(app.applicationUSerId)
             if (app == null)
             {
                 return HttpNotFound();
             }
 
-            return View();
+            return View(appppp);
         }
 
         // POST: Appointment/Delete/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+               
+                Appointment app = db.Appointments.Find(id);
               
-
+                 db.Appointments.Remove(app);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
+
+            protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                return View();
+                db.Dispose();
             }
+            base.Dispose(disposing);
         }
+    
     }
 }

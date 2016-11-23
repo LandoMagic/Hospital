@@ -3,44 +3,33 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Group = System.Text.RegularExpressions.Group;
 using AspNetGroupBasedPermissions.Model;
+using AspNetGroupBasedPermissions.Model.ApplicationUSerGroup;
+using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace AspNetGroupBasedPermissions.Repository
+namespace AspNetGroupBasedPermissions.Repository.DBContext
 {
-    public class ApplicationUser : IdentityUser
-    {
-        public ApplicationUser()
-            : base()
-        {
-            this.Groups = new HashSet<ApplicationUserGroup>();
-        }
-
-        [Required]
-        public string FirstName { get; set; }
-
-        [Required]
-        public string LastName { get; set; }
-
-        [Required]
-        public string Email { get; set; }
-
-        public virtual ICollection<ApplicationUserGroup> Groups { get; set; }
-
-    }
+ 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         // Add an instance IDbSet using the 'new' keyword:
-        new public virtual IDbSet<ApplicationRole> Roles { get; set; }
-        public virtual IDbSet<Group> Groups { get; set; }
-
-        public IDbSet<Patient> Patients { get; set; }
+       
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
 
         }
+
+        public virtual DbSet<ApplicationRole> Roles { get; set; }
+        public virtual DbSet<Group> Groups { get; set; }
+        public DbSet<ChildBirth> ChildBirths { get; set; }
+
+        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<BodyOut> BodyOuts { get; set; }
+
+        public DbSet<DrugInventory> DrugInventories { get; set; }
+
+        public DbSet<Prescription> Prescriptions { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -94,8 +83,6 @@ namespace AspNetGroupBasedPermissions.Repository
             entityTypeConfiguration1.Property((ApplicationRole r) => r.Name).IsRequired();
         }
 
-        public System.Data.Entity.DbSet<AspNetGroupBasedPermissions.Model.Appointment> Appointments { get; set; }
-
-       
+     
     }
 }

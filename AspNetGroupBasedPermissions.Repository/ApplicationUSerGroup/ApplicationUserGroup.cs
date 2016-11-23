@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using AspNetGroupBasedPermissions.Repository.DBContext;
 
 namespace AspNetGroupBasedPermissions.Repository
 {

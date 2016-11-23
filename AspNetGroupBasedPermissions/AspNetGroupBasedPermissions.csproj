@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -159,15 +163,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapper.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\BodyOutsController.cs" />
+    <Compile Include="Controllers\ChildBirthsController.cs" />
+    <Compile Include="Controllers\DrugInventoriesController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
+    <Compile Include="Controllers\PrescriptionsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1455,9 +1464,32 @@
     <Content Include="Views\Patients\Index.cshtml" />
     <Content Include="Views\Appointment\Create.cshtml" />
     <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Appointment\Edit.cshtml" />
+    <Content Include="Views\Appointment\Delete.cshtml" />
+    <Content Include="Views\ChildBirths\Create.cshtml" />
+    <Content Include="Views\ChildBirths\Delete.cshtml" />
+    <Content Include="Views\ChildBirths\Details.cshtml" />
+    <Content Include="Views\ChildBirths\Edit.cshtml" />
+    <Content Include="Views\ChildBirths\Index.cshtml" />
+    <Content Include="Views\BodyOuts\Create.cshtml" />
+    <Content Include="Views\BodyOuts\Delete.cshtml" />
+    <Content Include="Views\BodyOuts\Details.cshtml" />
+    <Content Include="Views\BodyOuts\Edit.cshtml" />
+    <Content Include="Views\BodyOuts\Index.cshtml" />
+    <Content Include="Views\DrugInventories\Create.cshtml" />
+    <Content Include="Views\DrugInventories\Delete.cshtml" />
+    <Content Include="Views\DrugInventories\Details.cshtml" />
+    <Content Include="Views\DrugInventories\Edit.cshtml" />
+    <Content Include="Views\DrugInventories\Index.cshtml" />
+    <Content Include="Views\Prescriptions\Create.cshtml" />
+    <Content Include="Views\Prescriptions\Delete.cshtml" />
+    <Content Include="Views\Prescriptions\Details.cshtml" />
+    <Content Include="Views\Prescriptions\Edit.cshtml" />
+    <Content Include="Views\Prescriptions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Image\BodyOut\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -1471,6 +1503,10 @@
     <ProjectReference Include="..\AspNetGroupBasedPermissions.Repository\AspNetGroupBasedPermissions.Repository.csproj">
       <Project>{492ef79e-ab72-493c-ae0e-cd0c63f958db}</Project>
       <Name>AspNetGroupBasedPermissions.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AspNetGroupBasedPermissions.Service\AspNetGroupBasedPermissions.Service.csproj">
+      <Project>{3EF0B3CB-D185-4C16-8458-8208D67EF4D0}</Project>
+      <Name>AspNetGroupBasedPermissions.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

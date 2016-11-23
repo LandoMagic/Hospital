@@ -1,8 +1,8 @@
-﻿@model IEnumerable<AspNetGroupBasedPermissions.Model.Patient>
+﻿@model IEnumerable<AspNetGroupBasedPermissions.Model.ApplicationUser>
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    
 }
 
 <h2>Index</h2>
@@ -18,9 +18,7 @@
         <th>
             @Html.DisplayNameFor(model => model.LastName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PatientNumber)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.Phone)
         </th>
@@ -47,9 +45,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.LastName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PatientNumber)
-        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.Phone)
         </td>

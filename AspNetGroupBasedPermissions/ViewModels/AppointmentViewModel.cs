@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using AspNetGroupBasedPermissions.Controllers;
+using AspNetGroupBasedPermissions.Model;
 
 namespace AspNetGroupBasedPermissions.ViewModels
 {
@@ -12,7 +14,9 @@ namespace AspNetGroupBasedPermissions.ViewModels
         public string Description { get; set; }
         public DateTime Date { get; set; }
         public DateTime DateCreated { get; set; }
-        public string CreatedBy { get; set; }
-        public virtual PatientViewModel PatientViewmodel { get; set; }
+        public string CreatedBy { get; set; }      
+        public string PatientViewmodelId { get; set; }
+
+        public virtual ApplicationUser Patient { get; set; }
     }
 }

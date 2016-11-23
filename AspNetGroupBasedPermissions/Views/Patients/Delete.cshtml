@@ -1,8 +1,8 @@
-﻿@model AspNetGroupBasedPermissions.Model.Patient
+﻿@model AspNetGroupBasedPermissions.Model.ApplicationUser
 
 @{
     ViewBag.Title = "Delete";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+   
 }
 
 <h2>Delete</h2>
@@ -28,14 +28,7 @@
             @Html.DisplayFor(model => model.LastName)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PatientNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PatientNumber)
-        </dd>
-
+       
         <dt>
             @Html.DisplayNameFor(model => model.Phone)
         </dt>

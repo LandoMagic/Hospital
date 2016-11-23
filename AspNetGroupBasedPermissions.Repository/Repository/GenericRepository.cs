@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using AspNetGroupBasedPermissions.Repository.DBContext;
 using AspNetGroupBasedPermissions.Repository.Interface;
 
 namespace AspNetGroupBasedPermissions.Repository.Repository

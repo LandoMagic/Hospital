@@ -7,7 +7,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using AspNetGroupBasedPermissions.Model;
 using AspNetGroupBasedPermissions.Repository;
+using AspNetGroupBasedPermissions.Repository.DBContext;
 
 namespace AspNetGroupBasedPermissions.Controllers
 {

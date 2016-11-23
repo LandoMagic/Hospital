@@ -3,7 +3,10 @@
 // New namespace imports:
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
+using AspNetGroupBasedPermissions.Model;
+using AspNetGroupBasedPermissions.Model.ApplicationUSerGroup;
 using AspNetGroupBasedPermissions.Repository;
+using AspNetGroupBasedPermissions.Repository.DBContext;
 
 namespace AspNetGroupBasedPermissions.Models
 {

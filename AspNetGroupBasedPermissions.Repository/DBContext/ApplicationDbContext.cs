@@ -96,6 +96,6 @@ namespace AspNetGroupBasedPermissions.Repository
 
         public System.Data.Entity.DbSet<AspNetGroupBasedPermissions.Model.Appointment> Appointments { get; set; }
 
-        public System.Data.Entity.DbSet<AspNetGroupBasedPermissions.ViewModels.AppointmentViewModel> AppointmentViewModels { get; set; }
+       
     }
 }

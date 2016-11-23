@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using AspNetGroupBasedPermissions.Controllers;
-using AspNetGroupBasedPermissions.Model;
+using HospitalModel;
 
-namespace AspNetGroupBasedPermissions.ViewModels
+namespace HospitalWeb.ViewModels
 {
     public class AppointmentViewModel
     {

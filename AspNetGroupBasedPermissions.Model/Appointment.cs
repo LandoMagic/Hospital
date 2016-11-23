@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AspNetGroupBasedPermissions.Model
+namespace HospitalModel
 {
    public class Appointment
     {

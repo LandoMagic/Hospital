@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using AspNetGroupBasedPermissions.Model;
-using AspNetGroupBasedPermissions.Repository.DBContext;
-using System.IO;
+using HospitalModel;
+using HospitalRepository.DBContext;
 
-namespace AspNetGroupBasedPermissions.Controllers
+namespace HospitalWeb.Controllers
 {
     public class BodyOutsController : Controller
     {

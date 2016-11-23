@@ -7,8 +7,8 @@
     <ProjectGuid>{3EF0B3CB-D185-4C16-8458-8208D67EF4D0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AspNetGroupBasedPermissions.Service</RootNamespace>
-    <AssemblyName>AspNetGroupBasedPermissions.Service</AssemblyName>
+    <RootNamespace>HospitalService</RootNamespace>
+    <AssemblyName>HospitalService</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -64,13 +64,13 @@
     <Folder Include="Interface\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AspNetGroupBasedPermissions.Model\AspNetGroupBasedPermissions.Model.csproj">
+    <ProjectReference Include="..\AspNetGroupBasedPermissions.Model\HospitalModel.csproj">
       <Project>{B4EACD55-0F08-4D7A-9F18-B7BA7B8ABA84}</Project>
-      <Name>AspNetGroupBasedPermissions.Model</Name>
+      <Name>HospitalModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AspNetGroupBasedPermissions.Repository\AspNetGroupBasedPermissions.Repository.csproj">
+    <ProjectReference Include="..\AspNetGroupBasedPermissions.Repository\HospitalRepository.csproj">
       <Project>{492EF79E-AB72-493C-AE0E-CD0C63F958DB}</Project>
-      <Name>AspNetGroupBasedPermissions.Repository</Name>
+      <Name>HospitalRepository</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

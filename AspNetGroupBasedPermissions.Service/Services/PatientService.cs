@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AspNetGroupBasedPermissions.Model;
-using AspNetGroupBasedPermissions.Repository.DBContext;
+using HospitalModel;
+using HospitalRepository.DBContext;
 
-namespace AspNetGroupBasedPermissions.Service.Services
+namespace HospitalService.Services
 {
    public class PatientService
     {

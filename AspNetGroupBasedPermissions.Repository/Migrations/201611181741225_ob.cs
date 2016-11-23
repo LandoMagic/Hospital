@@ -1,8 +1,7 @@
-namespace AspNetGroupBasedPermissions.Repository.Migrations
+using System.Data.Entity.Migrations;
+
+namespace HospitalRepository.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    
     public partial class ob : DbMigration
     {
         public override void Up()

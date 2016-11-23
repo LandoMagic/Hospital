@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AspNetGroupBasedPermissions.Model.ApplicationUSerGroup
+namespace HospitalModel.ApplicationUSerGroup
 {
     public class ApplicationUserGroup
     {

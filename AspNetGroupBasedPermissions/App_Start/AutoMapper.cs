@@ -1,8 +1,8 @@
-﻿using AspNetGroupBasedPermissions.Model;
-using AspNetGroupBasedPermissions.ViewModels;
-using AutoMapper;
+﻿using AutoMapper;
+using HospitalModel;
+using HospitalWeb.ViewModels;
 
-namespace AspNetGroupBasedPermissions
+namespace HospitalWeb
 {
     public class AutoMapper
     {

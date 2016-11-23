@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AspNetGroupBasedPermissions.Model.ApplicationUSerGroup;
+using HospitalModel.ApplicationUSerGroup;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace AspNetGroupBasedPermissions.Model
+namespace HospitalModel
 {
    
     public class ApplicationUser : IdentityUser

@@ -1,19 +1,16 @@
-﻿using AspNetGroupBasedPermissions.Model;
-using AspNetGroupBasedPermissions.Repository;
-using AspNetGroupBasedPermissions.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using AspNetGroupBasedPermissions.Model.ApplicationUSerGroup;
-using AspNetGroupBasedPermissions.Repository.DBContext;
-using AspNetGroupBasedPermissions.Service.Services;
 using AutoMapper;
+using HospitalModel;
+using HospitalRepository.DBContext;
+using HospitalService.Services;
+using HospitalWeb.ViewModels;
 
-namespace AspNetGroupBasedPermissions.Controllers
+namespace HospitalWeb.Controllers
 {
     public class AppointmentController : Controller
     {

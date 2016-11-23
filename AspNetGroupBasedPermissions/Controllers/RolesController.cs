@@ -1,14 +1,13 @@
-﻿using AspNetGroupBasedPermissions.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using AspNetGroupBasedPermissions.Model.ApplicationUSerGroup;
-using AspNetGroupBasedPermissions.Repository;
-using AspNetGroupBasedPermissions.Repository.DBContext;
+using HospitalModel.ApplicationUSerGroup;
+using HospitalRepository.DBContext;
+using HospitalWeb.ViewModels;
 
-namespace AspNetGroupBasedPermissions.Controllers
+namespace HospitalWeb.Controllers
 {
     public class RolesController : Controller
     {

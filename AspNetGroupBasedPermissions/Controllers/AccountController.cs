@@ -1,17 +1,16 @@
-﻿using AspNetGroupBasedPermissions.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.Owin.Security;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using AspNetGroupBasedPermissions.Model;
-using AspNetGroupBasedPermissions.Repository;
-using AspNetGroupBasedPermissions.Repository.DBContext;
+using HospitalModel;
+using HospitalRepository.DBContext;
+using HospitalWeb.ViewModels;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
 
-namespace AspNetGroupBasedPermissions.Controllers
+namespace HospitalWeb.Controllers
 {
     [Authorize]
     public class AccountController : Controller

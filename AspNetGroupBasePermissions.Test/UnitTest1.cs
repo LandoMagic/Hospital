@@ -1,7 +1,6 @@
 ﻿using Xunit;
 
-
-namespace AspNetGroupBasePermissions.Test
+namespace Hospital.Test
 {
    
     public class ExampleTestWithXUnit

@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
-using AspNetGroupBasedPermissions.Model;
-using AspNetGroupBasedPermissions.Model.ApplicationUSerGroup;
+using HospitalModel;
+using HospitalModel.ApplicationUSerGroup;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace AspNetGroupBasedPermissions.Repository.DBContext
+namespace HospitalRepository.DBContext
 {
  
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

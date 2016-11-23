@@ -1,14 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using HospitalModel;
+using HospitalModel.ApplicationUSerGroup;
+using HospitalRepository.DBContext;
 // New namespace imports:
-using Microsoft.AspNet.Identity.EntityFramework;
-using System.Collections.Generic;
-using AspNetGroupBasedPermissions.Model;
-using AspNetGroupBasedPermissions.Model.ApplicationUSerGroup;
-using AspNetGroupBasedPermissions.Repository;
-using AspNetGroupBasedPermissions.Repository.DBContext;
 
-namespace AspNetGroupBasedPermissions.Models
+namespace HospitalWeb.ViewModels
 {
     public class ManageUserViewModel
     {

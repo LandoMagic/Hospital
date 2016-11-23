@@ -1,4 +1,4 @@
-﻿namespace AspNetGroupBasedPermissions.Model.ApplicationUSerGroup
+﻿namespace HospitalModel.ApplicationUSerGroup
 {
     public class ApplicationRoleGroup
     {

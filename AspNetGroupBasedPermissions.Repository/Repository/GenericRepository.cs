@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using AspNetGroupBasedPermissions.Repository.DBContext;
-using AspNetGroupBasedPermissions.Repository.Interface;
+using HospitalRepository.DBContext;
+using HospitalRepository.Interface;
 
-namespace AspNetGroupBasedPermissions.Repository.Repository
+namespace HospitalRepository.Repository
 {
     public abstract class GenericRepository<T, TKey> : IGenericRepository<T, TKey> where T : class
     {

@@ -1,8 +1,9 @@
-﻿using Microsoft.Owin;
+﻿using HospitalWeb;
+using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(AspNetGroupBasedPermissions.Startup))]
-namespace AspNetGroupBasedPermissions
+[assembly: OwinStartup(typeof(Startup))]
+namespace HospitalWeb
 {
     public partial class Startup
     {

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using AspNetGroupBasedPermissions.Model;
-using AspNetGroupBasedPermissions.Repository.DBContext;
+using HospitalModel;
+using HospitalRepository.DBContext;
 
-namespace AspNetGroupBasedPermissions.Controllers
+namespace HospitalWeb.Controllers
 {
     public class PrescriptionsController : Controller
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace AspNetGroupBasedPermissions.Model.ApplicationUSerGroup
+namespace HospitalModel.ApplicationUSerGroup
 {
     public class ApplicationRole : IdentityRole
     {

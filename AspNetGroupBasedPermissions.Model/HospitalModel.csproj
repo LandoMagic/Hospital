@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3EF0B3CB-D185-4C16-8458-8208D67EF4D0}</ProjectGuid>
+    <ProjectGuid>{B4EACD55-0F08-4D7A-9F18-B7BA7B8ABA84}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AspNetGroupBasedPermissions.Service</RootNamespace>
-    <AssemblyName>AspNetGroupBasedPermissions.Service</AssemblyName>
+    <RootNamespace>HospitalModel</RootNamespace>
+    <AssemblyName>HospitalModel</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -49,6 +49,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,21 +58,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationUser.cs" />
+    <Compile Include="ApplicationUSerGroup\ApplicationRole.cs" />
+    <Compile Include="ApplicationUSerGroup\ApplicationRoleGroup.cs" />
+    <Compile Include="ApplicationUSerGroup\ApplicationUserGroup.cs" />
+    <Compile Include="ApplicationUSerGroup\Group.cs" />
+    <Compile Include="Appointment.cs" />
+    <Compile Include="Birth.cs" />
+    <Compile Include="BloodBank.cs" />
+    <Compile Include="BodyOut.cs" />
+    <Compile Include="DrugInventory.cs" />
+    <Compile Include="Immunization.cs" />
+    <Compile Include="OutPatient.cs" />
+    <Compile Include="Prescription .cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\PatientService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interface\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AspNetGroupBasedPermissions.Model\AspNetGroupBasedPermissions.Model.csproj">
-      <Project>{B4EACD55-0F08-4D7A-9F18-B7BA7B8ABA84}</Project>
-      <Name>AspNetGroupBasedPermissions.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AspNetGroupBasedPermissions.Repository\AspNetGroupBasedPermissions.Repository.csproj">
-      <Project>{492EF79E-AB72-493C-AE0E-CD0C63F958DB}</Project>
-      <Name>AspNetGroupBasedPermissions.Repository</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

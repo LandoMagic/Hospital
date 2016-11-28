@@ -9,6 +9,7 @@ namespace HospitalModel
         public DateTime CreateBy { get; set; }
         public DateTime DateModified { get; set; }
         public string Detail { get; set; }
+        public string ImageUrl { get; set; }
 
     }
 }

@@ -51,6 +51,8 @@ namespace HospitalWeb.Controllers
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
+                   
+                   
                     return RedirectToLocal(returnUrl);
                 }
                 
@@ -339,10 +341,12 @@ namespace HospitalWeb.Controllers
             {
                 return Redirect(returnUrl);
             }
+           
             
             return RedirectToAction("Index", "Home");
         }
 
+        
         #endregion
     }
 }

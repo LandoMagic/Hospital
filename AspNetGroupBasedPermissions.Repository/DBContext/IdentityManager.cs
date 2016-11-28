@@ -131,6 +131,7 @@ namespace HospitalRepository.DBContext
                 foreach (ApplicationUser user in groupUsers)
                 {
                     // Is the user a member of any other groups with this role?
+                    
                     int groupsWithRole = user.Groups.Count(g => g.Group.Roles.Any(r => r.RoleId == currentRoleId));
 
                     // This will be 1 if the current group is the only one:

@@ -12,11 +12,13 @@ using HospitalWeb.ViewModels;
 
 namespace HospitalWeb.Controllers
 {
+    [Authorize]
     public class AppointmentController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         private readonly PatientService _patientService = new PatientService();
         // GET: Appointment
+        [Authorize(Roles = "CanViewAppointments")]
         public ActionResult Index()
         {
             var appList = new List<AppointmentViewModel>();

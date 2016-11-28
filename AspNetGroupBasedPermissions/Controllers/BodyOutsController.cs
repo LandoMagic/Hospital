@@ -6,13 +6,14 @@ using System.Web;
 using System.Web.Mvc;
 using HospitalModel;
 using HospitalRepository.DBContext;
+using HospitalService.Services;
 
 namespace HospitalWeb.Controllers
 {
     public class BodyOutsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        private readonly FileService _fileService;
         // GET: BodyOuts
         public ActionResult Index()
         {
@@ -61,8 +62,8 @@ namespace HospitalWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(BodyOut bodyOut, HttpPostedFileBase file)
         {
-            var url = uploadimage(file); //location of the sotr image afer upload
-            if (url != "")
+            var url = _fileService.SaveFileToLocation(file, "~/Image/BodyOut");// uploadimage(file); //location of the sotr image afer upload
+            if (!string.IsNullOrWhiteSpace(url))
             {
                 bodyOut.ImageUrl = url;
                 if (ModelState.IsValid)

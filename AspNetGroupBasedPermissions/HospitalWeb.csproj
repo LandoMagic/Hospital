@@ -175,6 +175,7 @@
     <Compile Include="Controllers\DrugInventoriesController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImmunizationsController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\PrescriptionsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -1486,6 +1487,11 @@
     <Content Include="Views\Prescriptions\Details.cshtml" />
     <Content Include="Views\Prescriptions\Edit.cshtml" />
     <Content Include="Views\Prescriptions\Index.cshtml" />
+    <Content Include="Views\Immunizations\Create.cshtml" />
+    <Content Include="Views\Immunizations\Delete.cshtml" />
+    <Content Include="Views\Immunizations\Details.cshtml" />
+    <Content Include="Views\Immunizations\Edit.cshtml" />
+    <Content Include="Views\Immunizations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

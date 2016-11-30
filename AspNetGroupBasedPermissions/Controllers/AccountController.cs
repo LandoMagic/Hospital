@@ -9,6 +9,7 @@ using HospitalWeb.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
+using AeorionGEMS.Service.Service;
 
 namespace HospitalWeb.Controllers
 {
@@ -38,7 +39,7 @@ namespace HospitalWeb.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-
+        
 
         [HttpPost]
         [AllowAnonymous]
@@ -80,7 +81,12 @@ namespace HospitalWeb.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Account");
+                    if(SendMail(model))
+                    {
+                        //can send a message to user
+                     return RedirectToAction("Index", "Account");
+                    }
+                   
                 }
 
             }
@@ -89,7 +95,27 @@ namespace HospitalWeb.Controllers
             return View(model);
         }
 
+        private bool SendMail(RegisterViewModel model)
+        {
+            TempData["message"] = "";
+            GmailEmailService mailer = new GmailEmailService();
+            mailer.ToEmail = model.Email;
+            mailer.Subject = "New Account";
+            mailer.ReplyTo = "dond1718@gmail.com";
+            mailer.Body = "<p>Put the message and confirmation link here</p><hr/> <br/>";
+            mailer.IsHtml = true;
+            try
+            {
+                mailer.Send();
+                return true;//mean mail was sent
+            }
+            catch
+            {
+                return false;
+            }
 
+           
+        }
         [Authorize(Roles = "Admin, CanEditUser, User")]
         public ActionResult Manage(ManageMessageId? message)
         {

@@ -81,6 +81,6 @@ namespace HospitalRepository.DBContext
             entityTypeConfiguration1.Property((ApplicationRole r) => r.Name).IsRequired();
         }
 
-     
+        public System.Data.Entity.DbSet<HospitalModel.Immunization> Immunizations { get; set; }
     }
 }

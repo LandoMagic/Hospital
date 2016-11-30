@@ -1,135 +1,140 @@
-﻿using System.Data.Entity;
-using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using HospitalModel;
 using HospitalRepository.DBContext;
+using System.IO;
 using HospitalService.Services;
 
 namespace HospitalWeb.Controllers
 {
-    public class BodyOutsController : Controller
+    public class ImmunizationsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         private readonly FileService _fileService;
-        // GET: BodyOuts
+        // GET: Immunizations
         public ActionResult Index()
         {
-            return View(db.BodyOuts.ToList());
+            return View(db.Immunizations.ToList());
         }
 
-      
-        private string uploadimage (HttpPostedFileBase file)
+        private string uploadimage(HttpPostedFileBase file)
         {
             var path = "";
             if (file != null && file.ContentLength > 0)
             {
                 var fileName = Path.GetFileName(file.FileName);
-                 path = Path.Combine(Server.MapPath("~/Image/BodyOut"), fileName);
+                path = Path.Combine(Server.MapPath("~/Image/BodyOut"), fileName);
                 file.SaveAs(path);
             }
 
             return path;
         }
 
-        // GET: BodyOuts/Details/5
+
+        // GET: Immunizations/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BodyOut bodyOut = db.BodyOuts.Find(id);
-            if (bodyOut == null)
+            Immunization immunization = db.Immunizations.Find(id);
+            if (immunization == null)
             {
                 return HttpNotFound();
             }
-            return View(bodyOut);
+            return View(immunization);
         }
 
-        // GET: BodyOuts/Create
+        // GET: Immunizations/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: BodyOuts/Create
+        // POST: Immunizations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(BodyOut bodyOut, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "Id,Name,CreateBy,DateModified,Detail,ImageUrl")] Immunization immunization, HttpPostedFileBase file)
         {
             var url = uploadimage(file); //location of the sotr image afer upload
+
             if (!string.IsNullOrWhiteSpace(url))
             {
-                bodyOut.ImageUrl = url;
+                immunization.ImageUrl = url;
                 if (ModelState.IsValid)
                 {
-                
-                    db.BodyOuts.Add(bodyOut);
+
+                    db.Immunizations.Add(immunization);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
             }
-            return View(bodyOut);
+            return View(immunization);
+
         }
 
-        // GET: BodyOuts/Edit/5
+        // GET: Immunizations/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BodyOut bodyOut = db.BodyOuts.Find(id);
-            if (bodyOut == null)
+            Immunization immunization = db.Immunizations.Find(id);
+            if (immunization == null)
             {
                 return HttpNotFound();
             }
-            return View(bodyOut);
+            return View(immunization);
         }
 
-        // POST: BodyOuts/Edit/5
+        // POST: Immunizations/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,MotherName,FatherName,PlaceOfBirth,Gender")] BodyOut bodyOut)
+        public ActionResult Edit([Bind(Include = "Id,Name,CreateBy,DateModified,Detail,ImageUrl")] Immunization immunization)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(bodyOut).State = EntityState.Modified;
+                db.Entry(immunization).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(bodyOut);
+            return View(immunization);
         }
 
-        // GET: BodyOuts/Delete/5
+        // GET: Immunizations/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BodyOut bodyOut = db.BodyOuts.Find(id);
-            if (bodyOut == null)
+            Immunization immunization = db.Immunizations.Find(id);
+            if (immunization == null)
             {
                 return HttpNotFound();
             }
-            return View(bodyOut);
+            return View(immunization);
         }
 
-        // POST: BodyOuts/Delete/5
+        // POST: Immunizations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BodyOut bodyOut = db.BodyOuts.Find(id);
-            db.BodyOuts.Remove(bodyOut);
+            Immunization immunization = db.Immunizations.Find(id);
+            db.Immunizations.Remove(immunization);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

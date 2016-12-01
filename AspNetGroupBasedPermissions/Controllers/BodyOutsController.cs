@@ -23,15 +23,16 @@ namespace HospitalWeb.Controllers
       
         private string uploadimage (HttpPostedFileBase file)
         {
-            var path = "";
+            var pathret = "";
             if (file != null && file.ContentLength > 0)
             {
                 var fileName = Path.GetFileName(file.FileName);
-                 path = Path.Combine(Server.MapPath("~/Image/BodyOut"), fileName);
+                 var path = Path.Combine(Server.MapPath("~/Image/BodyOut"), fileName);
                 file.SaveAs(path);
+                pathret = "/Image/BodyOut/"+fileName;
             }
 
-            return path;
+            return pathret;
         }
 
         // GET: BodyOuts/Details/5

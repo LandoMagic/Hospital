@@ -9,11 +9,12 @@ using HospitalWeb.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
-using AeorionGEMS.Service.Service;
+using HospitalService.Service;
+using System;
 
 namespace HospitalWeb.Controllers
 {
-    [Authorize]
+    
     public class AccountController : Controller
     {
         ApplicationDbContext _db = new ApplicationDbContext();
@@ -64,14 +65,14 @@ namespace HospitalWeb.Controllers
             return View(model);
         }
 
-        [Authorize(Roles = "Admin, CanEditUser")]
+        
         public ActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin, CanEditUser")]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -81,11 +82,11 @@ namespace HospitalWeb.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    if(SendMail(model))
-                    {
+                   // if(SendMail(model))
+                   // {
                         //can send a message to user
                      return RedirectToAction("Index", "Account");
-                    }
+                   // }
                    
                 }
 
@@ -109,8 +110,9 @@ namespace HospitalWeb.Controllers
                 mailer.Send();
                 return true;//mean mail was sent
             }
-            catch
+            catch(Exception ex)
             {
+                
                 return false;
             }
 

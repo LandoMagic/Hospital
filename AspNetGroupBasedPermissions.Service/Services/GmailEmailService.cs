@@ -7,7 +7,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AeorionGEMS.Service.Service
+namespace HospitalService.Service
 {
     public class GmailEmailService 
     {
@@ -29,7 +29,7 @@ namespace AeorionGEMS.Service.Service
             GmailHost = "smtp.gmail.com";
             GmailPort = 25;// Gmail can use ports 25, 465 & 587; but must be 25 for medium trust environment.
             GmailSSL = true;
-            GmailUsername = "dond1718";
+            GmailUsername = "dond1718@gmail.com";
             GmailPassword = "Dan78Dan";
         }
 

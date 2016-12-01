@@ -192,6 +192,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\default.css" />
     <Content Include="Content\fonts\fontawesome-webfont3295.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\fonts\Proxima_Nova_Bold.svg" />
@@ -210,6 +211,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\logo.png" />
     <Content Include="img\100x100.jpg" />
     <Content Include="img\avatar-1-128.png" />
     <Content Include="img\avatar-1-256.png" />
@@ -1399,6 +1401,7 @@
     <Content Include="Content\fonts\startui.woff" />
     <Content Include="Content\fonts\startuid41d.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\default.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -1492,6 +1495,7 @@
     <Content Include="Views\Immunizations\Details.cshtml" />
     <Content Include="Views\Immunizations\Edit.cshtml" />
     <Content Include="Views\Immunizations\Index.cshtml" />
+    <Content Include="Views\Home\Welcome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

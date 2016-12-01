@@ -9,6 +9,7 @@
 <div>
     <h4>BodyOut</h4>
     <hr />
+    <div class="col-md-6">
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.MotherName)
@@ -43,6 +44,15 @@
         </dd>
 
     </dl>
+  </div>
+<div>
+    <img src="@Model.ImageUrl" />
+    
+           
+      
+       
+
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |

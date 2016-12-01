@@ -6,7 +6,7 @@ namespace HospitalWeb.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Welcome");
         }
 
         public ActionResult About()
@@ -20,6 +20,10 @@ namespace HospitalWeb.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        public ActionResult Welcome()
+        {
             return View();
         }
     }

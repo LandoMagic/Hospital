@@ -82,5 +82,7 @@ namespace HospitalRepository.DBContext
         }
 
         public System.Data.Entity.DbSet<HospitalModel.Immunization> Immunizations { get; set; }
+
+        public System.Data.Entity.DbSet<HospitalModel.Death> Deaths { get; set; }
     }
 }

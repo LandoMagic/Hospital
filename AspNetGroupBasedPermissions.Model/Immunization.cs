@@ -6,7 +6,7 @@ namespace HospitalModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime CreateBy { get; set; }
+        public string CreateBy { get; set; }
         public DateTime DateModified { get; set; }
         public string Detail { get; set; }
         public string ImageUrl { get; set; }

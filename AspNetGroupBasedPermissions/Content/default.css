@@ -24,7 +24,15 @@
  .conceal{
 	 display: none;
  }
- 
+
+body, html {
+    min-height:100%;
+}
+body {
+    background-image: url('../Image/back1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
  
  
  /********************************/
@@ -132,13 +140,13 @@
   background-repeat: no-repeat;
 }
 .fade-carousel .slides .slide-1 {
-  background-image: url("../images/f_p.jpg"); 
+    background-image: url('../Image/back1.png');
 }
 .fade-carousel .slides .slide-2 {
-  background-image: url("../images/f_t.jpg");
+    background-image: url('../Image/back1.png');
 }
 .fade-carousel .slides .slide-3 {
-  background-image: url("../images/s_p.jpg");
+    background-image: url('../Image/back1.png');
 }
 
 /********************************/

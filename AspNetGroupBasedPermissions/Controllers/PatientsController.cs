@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using HospitalModel;
 using HospitalRepository.DBContext;
 using HospitalService.Services;
+using Microsoft.AspNet.Identity;
 
 namespace HospitalWeb.Controllers
 {
@@ -52,6 +53,8 @@ namespace HospitalWeb.Controllers
             if (ModelState.IsValid)
             {
                 patient.UserName = patient.FirstName + "." + patient.LastName;
+                patient.DateAddded = DateTime.Now;
+                patient.ModifiedBy = User.Identity.GetUserName();
                 var pat = _db.Users.Add(patient);
                 try
                 {
@@ -90,8 +93,16 @@ namespace HospitalWeb.Controllers
            
                 var idManager = new IdentityManager();              
                 idManager.ClearUserGroups(userId);
+                
                 var groupId = _db.Groups.FirstOrDefault(p => p.Name == "Patients");
-            if (groupId != null) idManager.AddUserToGroup(userId, groupId.Id);
+               
+            if (groupId == null)
+            {
+                idManager.CreateGroup("Patients");
+                groupId = _db.Groups.FirstOrDefault(p => p.Name == "Patients");
+            }
+          
+            idManager.AddUserToGroup(userId, groupId.Id);
         }
            
         // GET: Patients/Edit/5

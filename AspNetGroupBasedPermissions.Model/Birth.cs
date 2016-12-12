@@ -7,6 +7,8 @@ namespace HospitalModel
     {
         [Key]
         public int Id { get; set; }
+
+        [Display(Name = "Name")]
         public string NameOfChild { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string PlaceOfBirth { get; set; }

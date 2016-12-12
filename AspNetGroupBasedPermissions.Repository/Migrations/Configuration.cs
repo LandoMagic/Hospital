@@ -74,6 +74,8 @@ namespace HospitalRepository.Migrations
             _idManager.CreateRole("CanEditGroup", "Add, modify, and delete Groups");
             _idManager.CreateRole("CanEditRole", "Add, modify, and delete roles");
             _idManager.CreateRole("User", "Restricted to business domain activity");
+            _idManager.CreateRole("CanViewAppointments", "Restricted to business domain activity");
+            
         }
 
         private void AddRolesToGroups()

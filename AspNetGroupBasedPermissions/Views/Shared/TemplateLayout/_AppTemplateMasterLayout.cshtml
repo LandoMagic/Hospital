@@ -14,41 +14,44 @@
     @Styles.Render("~/Template/css")
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("styles", required: false) @*attached page css if needed*@
+    <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" />
     @*========================================================================================
         This is the end of all needed css files
    =====================================================================================*@
 </head>
 <body class="with-side-menu theme-picton-blue">
     
-    @Html.Partial("TemplateLayout/_HeaderPartial")
-    @Html.Partial("TemplateLayout/_SidebarPartial")
-    <div class="page-content">
-        <div class="container-fluid">
-            <header class="section-header">
-                <div class="tbl">
-                    <div class="tbl-row">
-                        <div class="tbl-cell">
-                            <h3>@ViewData["Title"]</h3>
-                            <ol class="breadcrumb breadcrumb-simple">
-                                <li><a href="#">Hospital</a></li>
-                                <li><a href="#">@this.ViewContext.RouteData.Values["controller"].ToString()</a></li>
-                                <li class="active">@ViewData["Title"]</li>
-                            </ol>
-                        </div>
+@Html.Partial("TemplateLayout/_HeaderPartial")
+@Html.Partial("TemplateLayout/_SidebarPartial")
+<div class="page-content">
+    <div class="container-fluid">
+        <header class="section-header">
+            <div class="tbl">
+                <div class="tbl-row">
+                    <div class="tbl-cell">
+                        <h3>@ViewData["Title"]</h3>
+                        <ol class="breadcrumb breadcrumb-simple">
+                            <li><a href="#">Hospital</a></li>
+                            <li><a href="#">@this.ViewContext.RouteData.Values["controller"].ToString()</a></li>
+                            <li class="active">@ViewData["Title"]</li>
+                        </ol>
                     </div>
                 </div>
-            </header>
-            @RenderBody()
-        </div><!--.container-fluid-->
-    </div><!--.page-content-->
+            </div>
+        </header>
+        @RenderBody()
+    </div><!--.container-fluid-->
+</div><!--.page-content-->
 
 @*========================================================================================
         This is the begining of all needed js files
     =====================================================================================*@
-  
-    @Scripts.Render("~/Template/js")
-    @RenderSection("scripts", required: false) @*attached page css if needed*@
-    @*========================================================================================
+ @Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/Template/js")
+@RenderSection("scripts", required: false)
+     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    @*attached page css if needed*@
+@*========================================================================================
              This is the end of all needed jscss files
     =====================================================================================*@
 </body>

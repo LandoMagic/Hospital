@@ -12,11 +12,11 @@ namespace HospitalModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Death
+    public partial class ChildBirth
     {
         public int Id { get; set; }
         public string NameOfChild { get; set; }
-        public System.DateTime DateOfDeath { get; set; }
+        public System.DateTime DateOfBirth { get; set; }
         public string PlaceOfBirth { get; set; }
         public string Gender { get; set; }
         public string MotherName { get; set; }

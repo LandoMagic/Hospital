@@ -7,7 +7,8 @@
 <p>
     @Html.ActionLink("Create New", "Register", null, new { @class = "btn btn-success" })
 </p>
-<table class="table">
+<table id="account_table" class="table" cellspacing="0" width="100%">
+    <thead>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.UserName)
@@ -23,27 +24,37 @@
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.UserName }) |
-            @Html.ActionLink("Groups", "UserGroups", new { id = item.UserName }) |
-            @Html.ActionLink("Effective Permissions", "UserPermissions", new { id = item.UserName }) ||| 
-            @Html.ActionLink("Delete", "Delete", new { id = item.UserName })
-        </td>
-    </tr>
-}
+        </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.UserName }) |
+                    @Html.ActionLink("Groups", "UserGroups", new { id = item.UserName }) |
+                    @Html.ActionLink("Effective Permissions", "UserPermissions", new { id = item.UserName }) |||
+                    @Html.ActionLink("Delete", "Delete", new { id = item.UserName })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+@section Scripts{
+    <script>
+    $(document).ready(function() {
+        $('#account_table').DataTable();
+    } );
+    </script>
+}

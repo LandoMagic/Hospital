@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "ViewDashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Pie Chart</div>
+            <div class="panel-body">
+                <div class="canvas-wrapper">
+                    <canvas class="chart" id="pie-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Doughnut Chart</div>
+            <div class="panel-body">
+                <div class="canvas-wrapper">
+                    <canvas class="chart" id="doughnut-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--/.row-->

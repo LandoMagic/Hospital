@@ -183,8 +183,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\BodyOutsController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\ChildBirthsController.cs" />
     <Compile Include="Controllers\ChildDeathsController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DrugInventoriesController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -200,6 +202,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AppointmentViewModel.cs" />
+    <Compile Include="ViewModels\ChartsViewModel.cs" />
     <Compile Include="ViewModels\PatientViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1518,6 +1521,8 @@
     <Content Include="Views\ChildDeaths\Edit.cshtml" />
     <Content Include="Views\ChildDeaths\Index.cshtml" />
     <Content Include="Views\View.cshtml" />
+    <Content Include="Views\Chart\column.cshtml" />
+    <Content Include="Views\Dashboard\ViewDashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

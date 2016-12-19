@@ -208,6 +208,14 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap-table.css" />
+    <Content Include="Content\css\bootstrap-theme.css" />
+    <Content Include="Content\css\bootstrap-theme.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\datepicker.css" />
+    <Content Include="Content\css\datepicker3.css" />
+    <Content Include="Content\css\styles.css" />
     <Content Include="Content\default.css" />
     <Content Include="Content\fonts\fontawesome-webfont3295.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -1418,6 +1426,8 @@
     <Content Include="Content\fonts\startui.woff" />
     <Content Include="Content\fonts\startuid41d.eot" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="Content\css\bootstrap-theme.css.map" />
+    <Content Include="Content\css\bootstrap.css.map" />
     <None Include="Properties\PublishProfiles\hospital.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\default.js" />
@@ -1428,6 +1438,18 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\bootstrap-datepicker.js" />
+    <Content Include="Scripts\js\bootstrap-table.js" />
+    <Content Include="Scripts\js\bootstrap.js" />
+    <Content Include="Scripts\js\bootstrap.min.js" />
+    <Content Include="Scripts\js\chart-data.js" />
+    <Content Include="Scripts\js\chart.min.js" />
+    <Content Include="Scripts\js\easypiechart-data.js" />
+    <Content Include="Scripts\js\easypiechart.js" />
+    <Content Include="Scripts\js\html5shiv.min.js" />
+    <Content Include="Scripts\js\jquery-1.11.1.min.js" />
+    <Content Include="Scripts\js\lumino.glyphs.js" />
+    <Content Include="Scripts\js\respond.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />

@@ -23,7 +23,7 @@ namespace HospitalWeb.Controllers
         {
             var chartViewModel = new ChartsViewModel();
 
-            chartViewModel.countBirth = _db.ChildBirths.Where(a => a.DateOfBirth.Day == DateTime.Now.Day&& a.DateOfBirth.Month == DateTime.Now.Month).Count();
+            chartViewModel.countBirth = _db.ChildBirth.Where(a => a.DateOfBirth.Day == DateTime.Now.Day&& a.DateOfBirth.Month == DateTime.Now.Month).Count();
             chartViewModel.countDeath = _db.Deaths.Count();
             chartViewModel.countBodyOut = _db.BodyOuts.Count();
 

@@ -20,7 +20,7 @@ namespace HospitalRepository.DBContext
 
         public virtual DbSet<ApplicationRole> Roles { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
-        public DbSet<ChildBirth> ChildBirths { get; set; }
+        public DbSet<ChildBirth> ChildBirth { get; set; }
 
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<BodyOut> BodyOuts { get; set; }

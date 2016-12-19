@@ -14,7 +14,7 @@ namespace HospitalWeb.Controllers
         // GET: ChildBirths
         public ActionResult Index()
         {
-            return View(db.ChildBirths.ToList());
+            return View(db.ChildBirth.ToList());
         }
 
         // GET: ChildBirths/Details/5
@@ -24,7 +24,7 @@ namespace HospitalWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChildBirth childBirth = db.ChildBirths.Find(id);
+            ChildBirth childBirth = db.ChildBirth.Find(id);
             if (childBirth == null)
             {
                 return HttpNotFound();
@@ -47,7 +47,7 @@ namespace HospitalWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.ChildBirths.Add(childBirth);
+                db.ChildBirth.Add(childBirth);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -62,7 +62,7 @@ namespace HospitalWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChildBirth childBirth = db.ChildBirths.Find(id);
+            ChildBirth childBirth = db.ChildBirth.Find(id);
             if (childBirth == null)
             {
                 return HttpNotFound();
@@ -93,7 +93,7 @@ namespace HospitalWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChildBirth childBirth = db.ChildBirths.Find(id);
+            ChildBirth childBirth = db.ChildBirth.Find(id);
             if (childBirth == null)
             {
                 return HttpNotFound();
@@ -106,8 +106,8 @@ namespace HospitalWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ChildBirth childBirth = db.ChildBirths.Find(id);
-            db.ChildBirths.Remove(childBirth);
+            ChildBirth childBirth = db.ChildBirth.Find(id);
+            db.ChildBirth.Remove(childBirth);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

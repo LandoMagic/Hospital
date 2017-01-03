@@ -82,7 +82,7 @@ body {
 	text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
 }
 .hero h3 {
-	color: black;
+	color: white;
 	text-shadow: white0 0 3px #FF0000, 0 0 5px #0000FF;
 }
 .fade-carousel .carousel-inner .item .hero {
@@ -140,14 +140,14 @@ body {
   background-repeat: no-repeat;
 }
 .fade-carousel .slides .slide-1 {
-    background-image: url('../Image/back1.png');
+    background-image: url('../Image/hospital.jpg');
 }
-.fade-carousel .slides .slide-2 {
+/*.fade-carousel .slides .slide-2 {
     background-image: url('../Image/back1.png');
 }
 .fade-carousel .slides .slide-3 {
     background-image: url('../Image/back1.png');
-}
+}*/
 
 /********************************/
 /*          Media Queries       */

@@ -73,7 +73,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AspNetGroupBasedPermissions.Model\HospitalModel.csproj">
+    <ProjectReference Include="..\HospitalModel\HospitalModel.csproj">
       <Project>{b4eacd55-0f08-4d7a-9f18-b7ba7b8aba84}</Project>
       <Name>HospitalModel</Name>
     </ProjectReference>

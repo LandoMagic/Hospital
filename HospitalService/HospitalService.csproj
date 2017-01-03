@@ -67,11 +67,11 @@
     <Folder Include="Interface\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AspNetGroupBasedPermissions.Model\HospitalModel.csproj">
+    <ProjectReference Include="..\HospitalModel\HospitalModel.csproj">
       <Project>{B4EACD55-0F08-4D7A-9F18-B7BA7B8ABA84}</Project>
       <Name>HospitalModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AspNetGroupBasedPermissions.Repository\HospitalRepository.csproj">
+    <ProjectReference Include="..\HospitalRepository\HospitalRepository.csproj">
       <Project>{492EF79E-AB72-493C-AE0E-CD0C63F958DB}</Project>
       <Name>HospitalRepository</Name>
     </ProjectReference>

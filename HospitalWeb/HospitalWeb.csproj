@@ -236,6 +236,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Image\back1.png" />
+    <Content Include="Image\hospital.jpg" />
     <Content Include="Image\logo.png" />
     <Content Include="img\100x100.jpg" />
     <Content Include="img\avatar-1-128.png" />
@@ -1556,15 +1557,15 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AspNetGroupBasedPermissions.Model\HospitalModel.csproj">
+    <ProjectReference Include="..\HospitalModel\HospitalModel.csproj">
       <Project>{b4eacd55-0f08-4d7a-9f18-b7ba7b8aba84}</Project>
       <Name>HospitalModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AspNetGroupBasedPermissions.Repository\HospitalRepository.csproj">
+    <ProjectReference Include="..\HospitalRepository\HospitalRepository.csproj">
       <Project>{492ef79e-ab72-493c-ae0e-cd0c63f958db}</Project>
       <Name>HospitalRepository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AspNetGroupBasedPermissions.Service\HospitalService.csproj">
+    <ProjectReference Include="..\HospitalService\HospitalService.csproj">
       <Project>{3EF0B3CB-D185-4C16-8458-8208D67EF4D0}</Project>
       <Name>AspNetGroupBasedPermissions.Service</Name>
     </ProjectReference>

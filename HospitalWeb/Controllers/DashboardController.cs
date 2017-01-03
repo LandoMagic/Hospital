@@ -45,5 +45,20 @@ namespace HospitalWeb.Controllers
 
         }
 
+        public JsonResult CountAppointment(DateTime? endDate)
+        {
+            if (endDate == null)
+            {
+                var compareDate = DateTime.Now.AddDays(-7);
+              
+                var count = _db.Appointments.Count();
+                return Json(count, JsonRequestBehavior.AllowGet);
+
+            }
+
+            return null;
+
+        }
+
     }
 }
